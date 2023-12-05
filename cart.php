@@ -81,7 +81,7 @@
                                     <tr>
                                         <th scope="row">
                                             <div class="d-flex align-items-center">
-                                                <img src="https://i.imgur.com/2DsA49b.webp" class="img-fluid rounded-3 cart-img" alt="Book">
+                                                <img src="#" class="img-fluid rounded-3 cart-img" alt="Game Image">
                                                 <div class="flex-column ms-4">
                                                     <p class="mb-2">Name of Game</p>
                                                     <p class="mb-0">Developer</p>
