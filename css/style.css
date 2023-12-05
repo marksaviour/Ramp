@@ -1,0 +1,51 @@
+/* Index */
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.card-placement{
+    top: 0.5rem;
+    right: 0.5rem
+}
+
+
+
+/* Login */
+.login {
+    min-height: 100vh;
+}
+
+.bg-image{
+    background-image: url('https://dummyimage.com/954x1080/dee2e6/6c757d.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-heading {
+    font-weight: 300;
+}
+
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+}
+
+
+
+
+
+/* Cart */
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+.cart-img{
+    width: 120px;
+}
