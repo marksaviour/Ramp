@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-    </list>
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="1st Commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +43,10 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="WARN_ABOUT_CRLF" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.12_1/bin/php" />
@@ -118,11 +120,32 @@
       <workItem from="1701637953323" duration="3000" />
       <workItem from="1701730984793" duration="11985000" />
       <workItem from="1701796519115" duration="4000" />
-      <workItem from="1701796525452" duration="553000" />
+      <workItem from="1701796525452" duration="1138000" />
     </task>
+    <task id="LOCAL-00001" summary="1st Commit">
+      <option name="closed" value="true" />
+      <created>1701797162651</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701797162651</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1st Commit">
+      <option name="closed" value="true" />
+      <created>1701797242414</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701797242414</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1st Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st Commit" />
   </component>
 </project>
