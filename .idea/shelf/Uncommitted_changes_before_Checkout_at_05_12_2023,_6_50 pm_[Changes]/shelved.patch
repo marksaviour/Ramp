@@ -1,0 +1,168 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5cf007bb-6830-4536-baf9-e603a05507a3\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/README.md\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"HTML File\" />\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"package.json\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <excluded-from-favorite>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"LOCAL\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"main\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </excluded-from-favorite>\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"Mark Saviour Farrugia\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpDebugGeneral\" listening_started=\"true\" />\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"/opt/homebrew/Cellar/php/8.2.12_1/bin/php\" />\r\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\r\n  <component name=\"ProjectId\" id=\"2YPlgflF0yUfZSrn02dkoCyN9Pl\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/marksaviour/Documents/Wolverhampton/(5CS023) Web Development/Website/Ramp&quot;,\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5cf007bb-6830-4536-baf9-e603a05507a3\" name=\"Changes\" comment=\"\" />\r\n      <created>1700435207227</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1700435207227</updated>\r\n      <workItem from=\"1700435208276\" duration=\"354000\" />\r\n      <workItem from=\"1700435809720\" duration=\"132000\" />\r\n      <workItem from=\"1700485342156\" duration=\"853000\" />\r\n      <workItem from=\"1700486219117\" duration=\"1307000\" />\r\n      <workItem from=\"1700504687100\" duration=\"1012000\" />\r\n      <workItem from=\"1700516706900\" duration=\"1932000\" />\r\n      <workItem from=\"1700563751829\" duration=\"84000\" />\r\n      <workItem from=\"1700563848286\" duration=\"259000\" />\r\n      <workItem from=\"1700564115455\" duration=\"928000\" />\r\n      <workItem from=\"1700574522804\" duration=\"794000\" />\r\n      <workItem from=\"1700586047347\" duration=\"4940000\" />\r\n      <workItem from=\"1700824285943\" duration=\"1803000\" />\r\n      <workItem from=\"1701004886979\" duration=\"210000\" />\r\n      <workItem from=\"1701005126281\" duration=\"351000\" />\r\n      <workItem from=\"1701012269024\" duration=\"3973000\" />\r\n      <workItem from=\"1701016725435\" duration=\"1000\" />\r\n      <workItem from=\"1701018642554\" duration=\"12374000\" />\r\n      <workItem from=\"1701185006688\" duration=\"89000\" />\r\n      <workItem from=\"1701207679707\" duration=\"86000\" />\r\n      <workItem from=\"1701207782675\" duration=\"2233000\" />\r\n      <workItem from=\"1701210029790\" duration=\"17954000\" />\r\n      <workItem from=\"1701280790044\" duration=\"316000\" />\r\n      <workItem from=\"1701281116402\" duration=\"1410000\" />\r\n      <workItem from=\"1701353716857\" duration=\"141000\" />\r\n      <workItem from=\"1701354177729\" duration=\"416000\" />\r\n      <workItem from=\"1701354609276\" duration=\"21662000\" />\r\n      <workItem from=\"1701637953323\" duration=\"3000\" />\r\n      <workItem from=\"1701730984793\" duration=\"11985000\" />\r\n      <workItem from=\"1701796519115\" duration=\"4000\" />\r\n      <workItem from=\"1701796525452\" duration=\"553000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,9 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+-    </list>
++    <list default="true" id="e9e2ceaa-69b4-4ca3-8c3b-2df16f96e036" name="Changes" comment="." />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -14,115 +12,47 @@
+   </component>
+   <component name="ComposerSettings">
+     <execution />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="CSS File" />
+-        <option value="HTML File" />
+-        <option value="JavaScript File" />
+-        <option value="package.json" />
+-      </list>
+-    </option>
+   </component>
+   <component name="Git.Settings">
+-    <excluded-from-favorite>
+-      <branch-storage>
+-        <map>
+-          <entry type="LOCAL">
+-            <value>
+-              <list>
+-                <branch-info repo="$PROJECT_DIR$" source="main" />
+-              </list>
+-            </value>
+-          </entry>
+-        </map>
+-      </branch-storage>
+-    </excluded-from-favorite>
+-    <option name="PREVIOUS_COMMIT_AUTHORS">
+-      <list>
+-        <option value="Mark Saviour Farrugia" />
+-      </list>
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
+     </option>
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="SIGN_OFF_COMMIT" value="true" />
+   </component>
+-  <component name="PhpDebugGeneral" listening_started="true" />
+-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.12_1/bin/php" />
+-  <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 2
+-}</component>
+-  <component name="ProjectId" id="2YPlgflF0yUfZSrn02dkoCyN9Pl" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/marksaviour/Documents/Wolverhampton/(5CS023) Web Development/Website/Ramp&quot;,
+-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "git-widget-placeholder": "26150723",
++    "node.js.selected.package.tslint": "(autodetect)"
+   }
+-}</component>
+-  <component name="RecentsManager">
+-    <key name="MoveFile.RECENT_KEYS">
+-      <recent name="$PROJECT_DIR$" />
+-    </key>
+-  </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++}]]></component>
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="" />
+-      <created>1700435207227</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1700435207227</updated>
+-      <workItem from="1700435208276" duration="354000" />
+-      <workItem from="1700435809720" duration="132000" />
+-      <workItem from="1700485342156" duration="853000" />
+-      <workItem from="1700486219117" duration="1307000" />
+-      <workItem from="1700504687100" duration="1012000" />
+-      <workItem from="1700516706900" duration="1932000" />
+-      <workItem from="1700563751829" duration="84000" />
+-      <workItem from="1700563848286" duration="259000" />
+-      <workItem from="1700564115455" duration="928000" />
+-      <workItem from="1700574522804" duration="794000" />
+-      <workItem from="1700586047347" duration="4940000" />
+-      <workItem from="1700824285943" duration="1803000" />
+-      <workItem from="1701004886979" duration="210000" />
+-      <workItem from="1701005126281" duration="351000" />
+-      <workItem from="1701012269024" duration="3973000" />
+-      <workItem from="1701016725435" duration="1000" />
+-      <workItem from="1701018642554" duration="12374000" />
+-      <workItem from="1701185006688" duration="89000" />
+-      <workItem from="1701207679707" duration="86000" />
+-      <workItem from="1701207782675" duration="2233000" />
+-      <workItem from="1701210029790" duration="17954000" />
+-      <workItem from="1701280790044" duration="316000" />
+-      <workItem from="1701281116402" duration="1410000" />
+-      <workItem from="1701353716857" duration="141000" />
+-      <workItem from="1701354177729" duration="416000" />
+-      <workItem from="1701354609276" duration="21662000" />
+-      <workItem from="1701637953323" duration="3000" />
+-      <workItem from="1701730984793" duration="11985000" />
+-      <workItem from="1701796519115" duration="4000" />
+-      <workItem from="1701796525452" duration="553000" />
++    <task id="LOCAL-00001" summary=".">
++      <option name="closed" value="true" />
++      <created>1701798398047</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1701798398047</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="." />
++    <option name="LAST_COMMIT_MESSAGE" value="." />
+   </component>
+ </project>
+\ No newline at end of file

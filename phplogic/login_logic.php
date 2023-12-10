@@ -13,7 +13,7 @@
 
     if ($result->num_rows > 0) {
         $_SESSION['userLoggedIn'] = true;
-        $_SESSION['userEmail'] = $email;
+        $_SESSION['email'] = $email;
         header("Location: ../index.php");
         exit();
     } else {

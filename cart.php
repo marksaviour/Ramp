@@ -35,17 +35,17 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="coming-soon.php">Coming Soon</a></li>
+                        <li class="nav-item"><a class="nav-link" href="comingsoon.php">Coming Soon</a></li>
                     </ul>
 
                     <div class="d-flex">
                         <?php
-                        session_start();
-                        if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                            echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
-                        } else {
-                            echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
-                        }
+                            session_start();
+                            if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                                echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
+                            } else {
+                                echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
+                            }
                         ?>
                     </div>
 
@@ -77,31 +77,41 @@
                                 </tr>
                                 </thead>
 
+                                <?php
+                                    function getGameDetailsById($gameId) {
+                                        return ['name' => 'Example Game', 'developer' => 'Example Dev', 'platform' => 'PC'];
+                                    }
+
+                                    $gameID = 123;
+                                    $gameDetails = getGameDetailsById($gameID);
+                                ?>
+
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <div class="d-flex align-items-center">
-                                                <img src="#" class="img-fluid rounded-3 cart-img" alt="Game Image">
-                                                <div class="flex-column ms-4">
-                                                    <p class="mb-2">Name of Game</p>
-                                                    <p class="mb-0">Developer</p>
-                                                </div>
+                                <tr data-game-id="<?= $gameID ?>">
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center">
+                                            <img src="#" class="img-fluid rounded-3 cart-img" alt="Game Image">
+                                            <div class="flex-column ms-4">
+                                                <p class="mb-2"><?= $gameDetails['name'] ?></p>
+                                                <p class="mb-0"><?= $gameDetails['developer'] ?></p>
                                             </div>
-                                        </th>
+                                        </div>
+                                    </th>
 
-                                        <td class="align-middle">
-                                            <p class="mb-0">Platform</p>
-                                        </td>
+                                    <td class="align-middle">
+                                        <p class="mb-0"><?= $gameDetails['platform'] ?></p>
+                                    </td>
 
-                                        <td class="align-middle">
-                                            <p class="mb-0">$price</p>
-                                        </td>
+                                    <td class="align-middle">
+                                        <p class="mb-0">€15.00</p>
+                                    </td>
 
-                                        <td class="align-middle">
-                                            <p class="mb-0"><i class="fa-solid fa-xmark"></i></p>
-                                        </td>
-                                    </tr>
+                                    <td class="align-middle">
+                                        <p class="mb-0"><i class="fa-solid fa-xmark"></i></p>
+                                    </td>
+                                </tr>
                                 </tbody>
+
                             </table>
                         </div>
 

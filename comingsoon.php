@@ -33,7 +33,7 @@
                                 <li><a class="dropdown-item" href="playstation.php">Playstation</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="coming-soon.php">Coming Soon</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Coming Soon</a></li>
                     </ul>
                     <div class="d-flex">
                         <button class="btn btn-outline-dark">
@@ -64,20 +64,82 @@
 
         <!-- Page content-->
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">Date of Game releasing</div>
-                            <h2 class="card-title">Game title</h2>
-                            <div class="small card-title">Developer</div>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        </div>
-                    </div>
-                </div>
+            <?php
+                $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
+                $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
 
-                <!-- Side Widgets -->
+                // Function to make a cURL request to the IGDB API
+                function makeIGDBRequest($url, $postFields) {
+                    global $clientId, $authToken;
+                    $curl = curl_init();
+                    curl_setopt_array($curl, [
+                        CURLOPT_URL => $url,
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_HTTPHEADER => [
+                            "Client-ID: {$clientId}",
+                            "Authorization: {$authToken}",
+                            "Content-Type: application/json"
+                        ],
+                        CURLOPT_CUSTOMREQUEST => "POST",
+                        CURLOPT_POSTFIELDS => $postFields,
+                    ]);
+
+                    $response = curl_exec($curl);
+                    if(curl_errno($curl)){
+                        echo 'Request Error:' . curl_error($curl);
+                    }
+                    curl_close($curl);
+                    return json_decode($response, true);
+                }
+
+                // First Request: Fetch Release Dates
+                $gamesReleaseDates = makeIGDBRequest("https://api.igdb.com/v4/release_dates/",
+                                                     "fields game, date; where date > " . time() . "; sort date asc; limit 10;");
+
+                // Extract game IDs from the first response
+                $gameIds = array_column($gamesReleaseDates, 'game');
+
+                // Second Request: Fetch Game Details
+                $gameDetailsQuery = "fields name, cover.url, summary, involved_companies.company.name; where id = (" . implode(',', $gameIds) . ");";
+                $gamesDetails = makeIGDBRequest("https://api.igdb.com/v4/games/", $gameDetailsQuery);
+
+                // Combine the data
+                $combinedData = [];
+                foreach ($gamesDetails as $detail) {
+                    foreach ($gamesReleaseDates as $releaseDate) {
+                        if ($releaseDate['game'] == $detail['id']) {
+                            $combinedData[] = array_merge($detail, ['release_date' => $releaseDate['date']]);
+                        }
+                    }
+                }
+
+                // Display the combined data
+                foreach ($combinedData as $game) {
+                    $releaseDate = date("Y-m-d", $game['release_date']);
+                    $name = $game['name'];
+                    $imageUrl = $game['cover']['url'];
+                    $altText = "Cover image for {$name}";
+                    $developer = $game['involved_companies'][0]['company']['name'];
+                    $summary = $game['summary'];
+
+                    echo "<div class='row'>
+                            <div class='col-lg-8'>
+                                <div class='card mb-4'>
+                                    <a href='#'><img class='card-img-top' src='{$imageUrl}' alt='{$altText}' /></a>
+                                    <div class='card-body'>
+                                        <div class='small text-muted'>Release Date: {$releaseDate}</div>
+                                        <h2 class='card-title'>{$name}</h2>
+                                        <div class='small card-title'>Developer: {$developer}</div>
+                                        <p class='card-text'>{$summary}</p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>";
+                }
+            ?>
+
+
+            <!-- Side Widgets -->
                 <div class="col-lg-4">
                     <!-- Search widget -->
                     <div class="card mb-4">
@@ -97,14 +159,14 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">PC</a></li>
-                                        <li><a href="#!">XBOX</a></li>
+                                        <li><a href="#">PC</a></li>
+                                        <li><a href="#">XBOX</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Nintendo</a></li>
-                                        <li><a href="#!">Playstation</a></li>
+                                        <li><a href="#">Nintendo</a></li>
+                                        <li><a href="#">Playstation</a></li>
                                     </ul>
                                 </div>
                             </div>
