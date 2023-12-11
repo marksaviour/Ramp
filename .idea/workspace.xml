@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="">
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="small changes made">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coming-soon.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phplogic/add-to.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phplogic/igdb.php" beforeDir="false" afterPath="$PROJECT_DIR$/phplogic/igdb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phplogic/login_logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/phplogic/login_logic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comingsoon.php" beforeDir="false" afterPath="$PROJECT_DIR$/comingsoon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +149,7 @@
       <workItem from="1701796519115" duration="4000" />
       <workItem from="1701796525452" duration="1539000" />
       <workItem from="1701888739050" duration="1262000" />
-      <workItem from="1701894405666" duration="26764000" />
+      <workItem from="1701894405666" duration="30731000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -194,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701800783633</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="small changes made">
+      <option name="closed" value="true" />
+      <created>1702246761848</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702246761848</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

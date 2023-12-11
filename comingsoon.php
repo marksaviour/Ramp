@@ -9,7 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/65953c8738.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../Ramp/css/style.css">
     </head>
 
     <body>
@@ -94,7 +94,7 @@
 
                 // First Request: Fetch Release Dates
                 $gamesReleaseDates = makeIGDBRequest("https://api.igdb.com/v4/release_dates/",
-                                                     "fields game, date; where date > " . time() . "; sort date asc; limit 10;");
+                                                     "fields game, date; where date > " . time() . "; sort date asc; limit 100;");
 
                 // Extract game IDs from the first response
                 $gameIds = array_column($gamesReleaseDates, 'game');
@@ -125,7 +125,7 @@
                     echo "<div class='row'>
                             <div class='col-lg-8'>
                                 <div class='card mb-4'>
-                                    <a href='#'><img class='card-img-top' src='{$imageUrl}' alt='{$altText}' /></a>
+                                    <a href='#'><img class='card-img-top image-850x350' src='{$imageUrl}' alt='{$altText}' /></a>
                                     <div class='card-body'>
                                         <div class='small text-muted'>Release Date: {$releaseDate}</div>
                                         <h2 class='card-title'>{$name}</h2>

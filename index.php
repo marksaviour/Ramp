@@ -9,7 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/65953c8738.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../Ramp/css/style.css">
     </head>
 
     <body>
@@ -35,7 +35,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="coming-soon.php">Coming Soon</a></li>
+                        <li class="nav-item"><a class="nav-link" href="comingsoon.php">Coming Soon</a></li>
                     </ul>
 
                     <div class="d-flex">

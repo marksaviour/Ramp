@@ -49,3 +49,12 @@
 .cart-img{
     width: 120px;
 }
+
+
+
+
+.image-850x350 {
+    width: 850px;
+    height: 350px;
+    object-fit: cover;
+}
