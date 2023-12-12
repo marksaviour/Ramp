@@ -78,7 +78,7 @@
                                 "Content-Type: application/json"
                             ],
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url; where category = 0 & platforms = 48; limit 100; sort rating desc;',
+                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url; where category = 0 & platforms = 130; limit 100; sort rating desc;',
                         ]);
 
                         $response = curl_exec($curl);

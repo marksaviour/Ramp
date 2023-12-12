@@ -73,13 +73,11 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../Ramp/assets/images/slider-img-1.png" alt="Slider image with logo">
+                        <img src="../Ramp/assets/images/slider-img-1.png" alt="Slider image with logo RAMP">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://dummyimage.com/1920x702/dee2e6/6c757d.jpg" alt="temp image">
+                        <img src="../Ramp/assets/images/slider-img-2.png" alt="Slider image stating that all games are priced at €15/hr">
                         <div class="carousel-caption">
-                            <h5>Second slide Temp Img</h5>
-                            <p>Link with DB to get the Photo</p>
                         </div>
                     </div>
                     <div class="carousel-item">
