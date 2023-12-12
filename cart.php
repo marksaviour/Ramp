@@ -299,10 +299,18 @@
                         <!--Useful Links-->
                         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                            <p><a href="#" class="text-reset">Home</a></p>
-                            <p><a href="#" class="text-reset">Saved</a></p>
-                            <p><a href="#" class="text-reset">Cart</a></p>
-                            <p><a href="#" class="text-reset">Account</a></p>
+                            <p><a href="index.php" class="text-reset">Home</a></p>
+                            <?php
+                            session_start();
+                            if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                                echo '<p><a href="cart.php" class="text-reset">Cart</a></p>';
+                                echo '<p><a href="../Ramp/phplogic/logout_logic.php" class="text-reset">Logout</a></p>';
+                            } else {
+                                echo '<p><a href="login.php" class="text-reset">Cart</a></p>';
+                                echo '<p><a href="login.php" class="text-reset">Login</a></p>';
+                            }
+                            ?>
+                            <p><a href="comingsoon.php" class="text-reset">Coming Soon</a></p>
                         </div>
 
                         <!--Where to find Us-->

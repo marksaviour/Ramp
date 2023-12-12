@@ -130,7 +130,7 @@
         <footer class="text-center text-lg-start bg-dark text-white">
             <div class="container p-4 pb-0">
                 <section class="">
-                    <form action="../Ramp/phplogic/submit-news.php">
+                    <form method="POST" action="../Ramp/phplogic/submit-news.php" >
                         <div class="row d-flex justify-content-center">
                             <div class="col-auto">
                                 <p class="pt-2"><strong>Sign up for our newsletter:</strong></p>
@@ -138,8 +138,8 @@
 
                             <div class="col-md-5 col-12">
                                 <div class="form-outline mb-4">
-                                    <input type="email" class="form-control" id="NewsForm" placeholder="Email Address" />
-                                    <label for="NewsForm" class="form-label"></label>
+                                    <input class="form-control" type="email" id="email" name="email" placeholder="Email Address">
+                                    <label for="email"></label>
                                 </div>
                             </div>
 
@@ -157,10 +157,18 @@
                         <!--Useful Links-->
                         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                            <p><a href="#" class="text-reset">Home</a></p>
-                            <p><a href="#" class="text-reset">Saved</a></p>
-                            <p><a href="#" class="text-reset">Cart</a></p>
-                            <p><a href="#" class="text-reset">Account</a></p>
+                            <p><a href="index.php" class="text-reset">Home</a></p>
+                            <?php
+                            session_start();
+                            if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                                echo '<p><a href="cart.php" class="text-reset">Cart</a></p>';
+                                echo '<p><a href="../Ramp/phplogic/logout_logic.php" class="text-reset">Logout</a></p>';
+                            } else {
+                                echo '<p><a href="login.php" class="text-reset">Cart</a></p>';
+                                echo '<p><a href="login.php" class="text-reset">Login</a></p>';
+                            }
+                            ?>
+                            <p><a href="comingsoon.php" class="text-reset">Coming Soon</a></p>
                         </div>
 
                         <!--Where to find Us-->
