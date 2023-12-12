@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>RAMP - Game Rentals</title>
+        <title>RAMP - Game Rentals (PC)</title>
         <link rel="icon" type="image/x-icon" href="../Ramp/assets/images/logo/logo.svg"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -78,7 +78,7 @@
                                 "Content-Type: application/json"
                             ],
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => 'fields name, cover.url; limit 100; sort release_dates.date desc;',
+                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url; where category = 0 & platforms = 6; limit 100; sort rating desc;',
                         ]);
 
                         $response = curl_exec($curl);

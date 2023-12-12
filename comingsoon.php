@@ -65,6 +65,10 @@
         <!-- Page content-->
         <div class="container">
             <?php
+                // Declaration of time variables
+                $currentTime = time();
+                $weekTime = strtotime("+7 days", $currentTime);
+
                 $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
                 $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
 
@@ -94,7 +98,7 @@
 
                 // First Request: Fetch Release Dates
                 $gamesReleaseDates = makeIGDBRequest("https://api.igdb.com/v4/release_dates/",
-                                                     "fields game, date; where date > " . time() . "; sort date asc; limit 100;");
+                                                     "fields game, date; where date > " . $currentTime . " && date < " . $weekTime . "; sort date asc; limit 500;");
 
                 // Extract game IDs from the first response
                 $gameIds = array_column($gamesReleaseDates, 'game');
