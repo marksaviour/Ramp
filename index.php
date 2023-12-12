@@ -124,6 +124,10 @@
                         } else {
                             $games = json_decode($response, true);
                             foreach ($games as $game) {
+                                if (!isset($game['cover']['url'])) {
+                                    continue;
+                                }
+
                                 $id = $game['id'];
                                 $name = $game['name'];
                                 $imageUrl = $game['cover']['url'];

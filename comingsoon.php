@@ -65,14 +65,15 @@
         <!-- Page content-->
         <div class="container">
             <?php
-                // Declaration of time variables
+                // Declare Variables for time
                 $currentTime = time();
                 $weekTime = strtotime("+7 days", $currentTime);
 
+                // Declare API Key Variables
                 $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
                 $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
 
-                // Function to make a cURL request to the IGDB API
+                //Start API Link
                 function makeIGDBRequest($url, $postFields) {
                     global $clientId, $authToken;
                     $curl = curl_init();
@@ -96,26 +97,56 @@
                     return json_decode($response, true);
                 }
 
-                // First Request: Fetch Release Dates
+                // Fetch Release Dates
                 $gamesReleaseDates = makeIGDBRequest("https://api.igdb.com/v4/release_dates/",
-                                                     "fields game, date; where date > " . $currentTime . " && date < " . $weekTime . "; sort date asc; limit 500;");
+                                                     "fields game, date; where date > {$currentTime} & date < {$weekTime}; sort date asc; limit 500;");
 
                 // Extract game IDs from the first response
                 $gameIds = array_column($gamesReleaseDates, 'game');
 
-                // Second Request: Fetch Game Details
-                $gameDetailsQuery = "fields name, cover.url, summary, involved_companies.company.name; where id = (" . implode(',', $gameIds) . ");";
+                // Fetch Game Details
+                $gameDetailsQuery = "fields name, cover.url, summary, involved_companies.company.name; where id = (" . implode(',', $gameIds) . "); limit 500; sort date asc;";
                 $gamesDetails = makeIGDBRequest("https://api.igdb.com/v4/games/", $gameDetailsQuery);
 
-                // Combine the data
+                //Combine the Data
                 $combinedData = [];
+
+                // Array to keep track of outputted games
+                $processedGames = [];
+
                 foreach ($gamesDetails as $detail) {
+                    // Check if the game has already been outputted
+                    if (isset($processedGames[$detail['id']])) {
+                        continue;
+                    }
+
                     foreach ($gamesReleaseDates as $releaseDate) {
                         if ($releaseDate['game'] == $detail['id']) {
-                            $combinedData[] = array_merge($detail, ['release_date' => $releaseDate['date']]);
+                            // Check if the game has a cover, developer, and summary
+                            if (!empty($detail['cover']['url']) && !empty($detail['involved_companies'][0]['company']['name']) && !empty($detail['summary'])) {
+                                $combinedData[] = array_merge($detail, ['release_date' => $releaseDate['date']]);
+                                $processedGames[$detail['id']] = true;
+                                break;
+                            }
                         }
                     }
                 }
+
+                foreach ($gamesReleaseDates as $releaseDate) {
+                    if ($releaseDate['game'] == $detail['id']) {
+                        $combinedData[] = array_merge($detail, ['release_date' => $releaseDate['date']]);
+                        $processedGames[$detail['id']] = true;
+                        break;
+                    }
+                }
+
+                // Function to compare release dates
+                function compareReleaseDates($a, $b) {
+                    return $a['release_date'] - $b['release_date'];
+                }
+
+                // Sort the combined data by release date
+                usort($combinedData, 'compareReleaseDates');
 
                 // Display the combined data
                 foreach ($combinedData as $game) {

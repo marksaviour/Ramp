@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Added a remove from cart function and fixed a few things overall">
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Renamed Files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phplogic/addToCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/phplogic/addToCart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phplogic/delete_from_cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/phplogic/delete_from_cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comingsoon.php" beforeDir="false" afterPath="$PROJECT_DIR$/comingsoon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nintendo.php" beforeDir="false" afterPath="$PROJECT_DIR$/nintendo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playstation.php" beforeDir="false" afterPath="$PROJECT_DIR$/playstation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xbox.php" beforeDir="false" afterPath="$PROJECT_DIR$/xbox.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +152,7 @@
       <workItem from="1701796519115" duration="4000" />
       <workItem from="1701796525452" duration="1539000" />
       <workItem from="1701888739050" duration="1262000" />
-      <workItem from="1701894405666" duration="57169000" />
+      <workItem from="1701894405666" duration="60833000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -278,7 +282,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702408538010</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed issues with addToCart.php">
+      <option name="closed" value="true" />
+      <created>1702409081786</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702409081786</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Renamed Files">
+      <option name="closed" value="true" />
+      <created>1702409191418</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1702409191418</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +325,8 @@
     <MESSAGE value="Added the pages related to the other platforms offered" />
     <MESSAGE value="Many changes made to the system and the footer was fixed" />
     <MESSAGE value="Added a remove from cart function and fixed a few things overall" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a remove from cart function and fixed a few things overall" />
+    <MESSAGE value="Fixed issues with addToCart.php" />
+    <MESSAGE value="Renamed Files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed Files" />
   </component>
 </project>

@@ -64,36 +64,40 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php
-                        $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
-                        $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
+                    $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
+                    $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
 
-                        $curl = curl_init();
+                    $curl = curl_init();
 
-                        curl_setopt_array($curl, [
-                            CURLOPT_URL => "https://api.igdb.com/v4/games/",
-                            CURLOPT_RETURNTRANSFER => true,
-                            CURLOPT_HTTPHEADER => [
-                                "Client-ID: {$clientId}",
-                                "Authorization: {$authToken}",
-                                "Content-Type: application/json"
-                            ],
-                            CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url; where category = 0 & platforms = 6; limit 100; sort rating desc;',
-                        ]);
+                    curl_setopt_array($curl, [
+                        CURLOPT_URL => "https://api.igdb.com/v4/games/",
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_HTTPHEADER => [
+                            "Client-ID: {$clientId}",
+                            "Authorization: {$authToken}",
+                            "Content-Type: application/json"
+                        ],
+                        CURLOPT_CUSTOMREQUEST => 'POST',
+                        CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url; where category = 0 & platforms = 6; limit 100; sort rating desc;',
+                    ]);
 
-                        $response = curl_exec($curl);
+                    $response = curl_exec($curl);
 
-                        if(curl_errno($curl)){
-                            echo 'Request Error:' . curl_error($curl);
-                        } else {
-                            $games = json_decode($response, true);
-                            foreach ($games as $game) {
-                                $id = $game['id'];
-                                $name = $game['name'];
-                                $imageUrl = $game['cover']['url'];
-                                $altText = "Cover image for {$name}";
+                    if (curl_errno($curl)) {
+                        echo 'Request Error:' . curl_error($curl);
+                    } else {
+                        $games = json_decode($response, true);
+                        foreach ($games as $game) {
+                            if (!isset($game['cover']['url'])) {
+                                continue;
+                            }
 
-                                echo "<div class='col mb-5'>
+                            $id = $game['id'];
+                            $name = $game['name'];
+                            $imageUrl = $game['cover']['url'];
+                            $altText = "Cover image for {$name}";
+
+                            echo "<div class='col mb-5'>
                                         <div class='card h-100'>
                                             <img class='card-img-top' src='{$imageUrl}' alt='{$altText}'/>
                                             <div class='card-body p-4'>
@@ -105,22 +109,22 @@
                                             <div class='card-footer p-4 pt-0 border-top-0 bg-transparent'>
                                                 <div class='text-center'>";
 
-                                if (!isset($_SESSION['userLoggedIn']) || $_SESSION['userLoggedIn'] != true) {
-                                    echo "<a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
-                                } else {
-                                    echo "<form action='phplogic/add_to_cart.php' method='post'>
+                            if (!isset($_SESSION['userLoggedIn']) || $_SESSION['userLoggedIn'] != true) {
+                                echo "<a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
+                            } else {
+                                echo "<form action='phplogic/add_to_cart.php' method='post'>
                                                             <input type='hidden' name='game_id' value='{$id}'/>
                                                             <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
                                                           </form>";
-                                }
+                            }
 
-                                echo "            </div>
+                            echo "            </div>
                                             </div>
                                         </div>
                                       </div>";
-                            }
                         }
-                        curl_close($curl);
+                    }
+                    curl_close($curl);
                     ?>
                 </div>
             </div>
