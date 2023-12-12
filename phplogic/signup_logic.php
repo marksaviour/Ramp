@@ -6,12 +6,12 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-//    Keep un-hashed till you solve issue with login not reading the hash
-//    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (email, password, username) VALUES ('$email' , '$password' , '$username')";
+    $sql = $_SESSION['conn']->prepare("INSERT INTO users (username, email, password) VALUES (?,?,?)");
+    $sql->bind_param("sss", $username, $email, $hashedPassword);
 
-    if (mysqli_query($_SESSION['conn'], $sql)) {
+    if ($sql->execute()) {
         $success = "Account Created!";
         header("Location: ../login.php?success=" . urlencode($success));
         exit();

@@ -26,24 +26,51 @@
                                     <div class="col-md-9 col-lg-8 mx-auto">
                                         <h3 class="login-heading mb-4">Welcome To RAMP</h3>
 
-                                        <form method="POST" action="../Ramp/phplogic/signup_logic.php" >
+                                        <form method="POST" action="../Ramp/phplogic/signup_logic.php" onsubmit="return validateForm(event)">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" type="text" id="username" name="username" placeholder="username">
                                                 <label for="username">Username</label>
                                             </div>
 
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" type="text" id="email" name="email" placeholder="name@example.com">
+                                                <input class="form-control" type="email" id="email" name="email" placeholder="name@example.com">
                                                 <label for="email">Email address</label>
                                             </div>
 
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" type="password" id="password" name="password" placeholder="password">
+                                                <input class="form-control" type="password" id="password" name="password" placeholder="password" onkeyup="checkPassword()">
                                                 <label for="password">Password</label>
+                                                <small id="passwordHelp" class="form-text text-muted"></small>
                                             </div>
 
+                                            <!-- Required Javascript for password checking-->
+                                            <script>
+                                                function checkPassword() {
+                                                    var password = document.getElementById("password").value;
+                                                    var message = document.getElementById("passwordHelp");
+                                                    var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$");
+
+                                                    if(strongRegex.test(password)) {
+                                                        message.style.color = 'green';
+                                                        message.innerHTML = "Password is strong.";
+                                                        return true;
+                                                    } else {
+                                                        message.style.color = 'red';
+                                                        message.innerHTML = "Password must be at least 8 characters long, contain a number and an uppercase letter.";
+                                                        return false;
+                                                    }
+                                                }
+
+                                                function validateForm(event) {
+                                                    if (!checkPassword()) {
+                                                        event.preventDefault();
+                                                        return false;
+                                                    }
+                                                }
+                                            </script>
+
                                             <div class="d-grid">
-                                                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+                                                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Create Account</button>
                                                 <div class="text-center">
                                                     <a class="small" href="login.php">Login</a>
                                                     <a class="small" href="forgot.php">Forgot password?</a>

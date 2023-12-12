@@ -13,44 +13,55 @@
     </head>
 
     <body>
-        <!--Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <!--Navbar Name-->
-                <a class="navbar-brand" href="index.php">RAMP</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <!--Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <!--Navbar Name-->
+            <a class="navbar-brand" href="index.php">RAMP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-                <!--Navbar Links List-->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Platforms</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="pc.php">PC</a></li>
-                                <li><a class="dropdown-item" href="xbox.php">XBOX</a></li>
-                                <li><a class="dropdown-item" href="nintendo.php">Nintendo</a></li>
-                                <li><a class="dropdown-item" href="playstation.php">Playstation</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Coming Soon</a></li>
-                    </ul>
-                    <div class="d-flex">
-                        <button class="btn btn-outline-dark">
-                            <i class="fa-solid fa-user"></i><a class="text-decoration-none link-dark" href="login.php"> Login</a>
-                        </button>
-                    </div>
+            <!--Navbar Links List-->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
 
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Platforms</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="pc.php">PC</a></li>
+                            <li><a class="dropdown-item" href="xbox.php">XBOX</a></li>
+                            <li><a class="dropdown-item" href="nintendo.php">Nintendo</a></li>
+                            <li><a class="dropdown-item" href="playstation.php">Playstation</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="comingsoon.php">Coming Soon</a></li>
+                </ul>
+
+                <div class="d-flex">
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                        echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
+                    } else {
+                        echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
+                    }
+                    ?>
+                </div>
+
+                <div class="d-flex">
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                        echo '<a href="cart.php" class="btn btn-outline-dark"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
+                    } else {
+                        echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
+                    }
+                    ?>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">

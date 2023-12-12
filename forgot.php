@@ -36,7 +36,7 @@
                                                 <label for="email">Email address</label>
                                             </div>
                                             <div class="d-grid">
-                                                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+                                                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Send email!</button>
                                                 <div class="text-center">
                                                     <a class="small" href="login.php">Login</a>
                                                     <a class="small" href="signup.php">Sign Up</a>
