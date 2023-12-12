@@ -142,18 +142,17 @@
                                                     <div class='text-center'>";
 
                                 if (!isset($_SESSION['userLoggedIn']) || $_SESSION['userLoggedIn'] != true) {
-                                    echo "<a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
+                                    echo "             <a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
                                 } else {
-                                    echo "<form action='../Ramp/phplogic/addToCart.php' method='post'>
-                                                                <input type='hidden' name='game_id' value='{$id}'/>
-                                                                <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
-                                                              </form>";
+                                    echo "             <form action='../Ramp/phplogic/addToCart.php' method='post'>
+                                                            <input type='hidden' name='game_id' value='{$id}'/>
+                                                            <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
+                                                       </form>";
                                 }
-
-                                echo "            </div>
-                                                </div>
+                                echo "              </div>
+                                                 </div>
                                             </div>
-                                          </div>";
+                                       </div>";
                             }
                         }
                         curl_close($curl);

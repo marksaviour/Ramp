@@ -8,7 +8,7 @@
 
         $checkQuery = "SELECT COUNT(*) FROM cart WHERE game_id = ? AND email = ?";
         $checkStmt = $_SESSION['conn']->prepare($checkQuery);
-        $checkStmt->bind_param("ii", $gameId, $email);
+        $checkStmt->bind_param("ii", $gameId, $_SESSION['email']);
         $checkStmt->execute();
 
         $result = $checkStmt->get_result();

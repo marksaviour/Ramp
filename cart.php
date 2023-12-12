@@ -77,25 +77,26 @@
                                 </tr>
                                 </thead>
 
+                                <tbody>
                                 <?php
-                                    session_start();
-                                    include "../Ramp/phplogic/dbcon.php";
+                                session_start();
+                                include "../Ramp/phplogic/dbcon.php";
 
-                                    if (!isset($_SESSION['email'])) {
-                                        header("Location: ../Ramp/login.php");
-                                        exit();
-                                    }
+                                if (!isset($_SESSION['email'])) {
+                                    header("Location: ../Ramp/login.php");
+                                    exit();
+                                }
 
-                                    $conn = $_SESSION['conn'];
-                                    $email = mysqli_real_escape_string($conn, $_SESSION['email']);
-                                    $query = "SELECT game_id FROM cart WHERE email = '$email'";
-                                    $result = mysqli_query($conn, $query);
+                                $sql = $_SESSION['conn']->prepare("SELECT game_id FROM cart WHERE email = ?");
+                                $sql->bind_param("s", $_SESSION["email"]);
+                                $sql->execute();
+                                $result = $sql->get_result();
 
-                                    if (mysqli_num_rows($result) > 0) {
-                                        $row = mysqli_fetch_assoc($result);
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
                                         $game_id = $row['game_id'];
 
-                                        //Start API Connection
+                                        // Start API Connection
                                         $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
                                         $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
 
@@ -110,26 +111,27 @@
                                                 "Content-Type: application/json"
                                             ],
                                             CURLOPT_CUSTOMREQUEST => 'POST',
-                                            CURLOPT_POSTFIELDS => 'fields *; where id = '.$game_id.';',
+                                            CURLOPT_POSTFIELDS => 'fields name,cover.url; where id = '.$game_id.';',
                                         ]);
 
                                         $response = curl_exec($curl);
 
-                                        if(curl_errno($curl)){
+                                        if ($response === false) {
                                             echo 'Request Error:' . curl_error($curl);
                                         } else {
                                             $games = json_decode($response, true);
-                                            foreach ($games as $game) {
-                                                $id = $game['id'];
-                                                $name = $game['name'];
-                                                $imageUrl = $game['cover']['url'];
-                                                $altText = "Cover image for {$name}";
-                                                $developer = $game['involved_companies'][0]['company']['name'];
-                                                $platform = $game['platforms'][0]['name'];
+
+                                            if (json_last_error() === JSON_ERROR_NONE) {
+                                                foreach ($games as $game) {
+                                                    $id = $game['id'];
+                                                    $name = $game['name'];
+                                                    $imageUrl = $game['cover']['url'];
+                                                    $altText = "Cover image for {$name}";
+                                                    $developer = $game['involved_companies'][0]['company']['name'];
+                                                    $platform = $game['platforms'][0]['name'];
 
 
-                                                echo "<tbody>
-                                                        <tr data-game-id='{$id}'>
+                                                    echo "<tr data-game-id='{$id}'>
                                                             <th scope='row'>
                                                                 <div class='d-flex align-items-center'>
                                                                     <img src='{$imageUrl}' class='img-fluid rounded-3 cart-img' alt='{$altText}'>
@@ -149,17 +151,26 @@
                                                             </td>
                         
                                                             <td class='align-middle'>
-                                                                <p class='mb-0'><i class='fa-solid fa-xmark'></i></p>
+                                                                <form action='../Ramp/phplogic/delete_from_cart.php' method='post'>
+                                                                    <input type='hidden' name='game_id' value='{$game_id}'>
+                                                                    <button type='submit' class='btn btn-danger'>
+                                                                        <i class='fa-solid fa-xmark'></i>
+                                                                    </button>
+                                                                </form>
                                                             </td>
-                                                        </tr>
-                                                     </tbody>";
+                                                          </tr>";
+                                                }
+                                            } else {
+                                                echo "JSON Decode Error: " . json_last_error_msg();
                                             }
                                         }
-                                    } else {
-                                        header("Location: ../error.php");
-                                        exit();
                                     }
+                                } else {
+                                    header("Location: ../error.php");
+                                    exit();
+                                }
                                 ?>
+                                </tbody>
                             </table>
                         </div>
 

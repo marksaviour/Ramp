@@ -15,9 +15,8 @@
         $_SESSION['userLoggedIn'] = true;
         $_SESSION['email'] = $email;
         header("Location: ../index.php");
-        exit();
     } else {
         $error_message = "Invalid email or password";
         header("Location: ../login.php?error=" . urlencode($error_message));
-        exit();
     }
+    exit();
