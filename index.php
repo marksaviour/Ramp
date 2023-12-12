@@ -73,11 +73,7 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://dummyimage.com/1920x702/dee2e6/6c757d.jpg" alt="Dummy image">
-                        <div class="carousel-caption">
-                            <h5>First slide Temp Img</h5>
-                            <p>Link with DB to get the Photo</p>
-                        </div>
+                        <img src="../Ramp/assets/images/slider-img-1.png" alt="Slider image with logo">
                     </div>
                     <div class="carousel-item">
                         <img src="https://dummyimage.com/1920x702/dee2e6/6c757d.jpg" alt="temp image">

@@ -78,40 +78,88 @@
                                 </thead>
 
                                 <?php
-                                    function getGameDetailsById($gameId) {
-                                        return ['name' => 'Example Game', 'developer' => 'Example Dev', 'platform' => 'PC'];
+                                    session_start();
+                                    include "../Ramp/phplogic/dbcon.php";
+
+                                    if (!isset($_SESSION['email'])) {
+                                        header("Location: ../Ramp/login.php");
+                                        exit();
                                     }
 
-                                    $gameID = 123;
-                                    $gameDetails = getGameDetailsById($gameID);
+                                    $conn = $_SESSION['conn'];
+                                    $email = mysqli_real_escape_string($conn, $_SESSION['email']);
+                                    $query = "SELECT game_id FROM cart WHERE email = '$email'";
+                                    $result = mysqli_query($conn, $query);
+
+                                    if (mysqli_num_rows($result) > 0) {
+                                        $row = mysqli_fetch_assoc($result);
+                                        $game_id = $row['game_id'];
+
+                                        //Start API Connection
+                                        $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
+                                        $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
+
+                                        $curl = curl_init();
+
+                                        curl_setopt_array($curl, [
+                                            CURLOPT_URL => "https://api.igdb.com/v4/games/",
+                                            CURLOPT_RETURNTRANSFER => true,
+                                            CURLOPT_HTTPHEADER => [
+                                                "Client-ID: {$clientId}",
+                                                "Authorization: {$authToken}",
+                                                "Content-Type: application/json"
+                                            ],
+                                            CURLOPT_CUSTOMREQUEST => 'POST',
+                                            CURLOPT_POSTFIELDS => 'fields *; where id = '.$game_id.';',
+                                        ]);
+
+                                        $response = curl_exec($curl);
+
+                                        if(curl_errno($curl)){
+                                            echo 'Request Error:' . curl_error($curl);
+                                        } else {
+                                            $games = json_decode($response, true);
+                                            foreach ($games as $game) {
+                                                $id = $game['id'];
+                                                $name = $game['name'];
+                                                $imageUrl = $game['cover']['url'];
+                                                $altText = "Cover image for {$name}";
+                                                $developer = $game['involved_companies'][0]['company']['name'];
+                                                $platform = $game['platforms'][0]['name'];
+
+
+                                                echo "<tbody>
+                                                        <tr data-game-id='{$id}'>
+                                                            <th scope='row'>
+                                                                <div class='d-flex align-items-center'>
+                                                                    <img src='{$imageUrl}' class='img-fluid rounded-3 cart-img' alt='{$altText}'>
+                                                                    <div class='flex-column ms-4'>
+                                                                        <p class='mb-2'>{$name}</p>
+                                                                        <p class='mb-0'>{$developer}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+                        
+                                                            <td class='align-middle'>
+                                                                <p class='mb-0'>{$platform}</p>
+                                                            </td>
+                        
+                                                            <td class='align-middle'>
+                                                                <p class='mb-0'>€15.00</p>
+                                                            </td>
+                        
+                                                            <td class='align-middle'>
+                                                                <p class='mb-0'><i class='fa-solid fa-xmark'></i></p>
+                                                            </td>
+                                                        </tr>
+                                                     </tbody>";
+                                            }
+                                        }
+                                    } else {
+                                        header("Location: ../error.php");
+                                        exit();
+                                    }
                                 ?>
-
-                                <tbody>
-                                <tr data-game-id="<?= $gameID ?>">
-                                    <th scope="row">
-                                        <div class="d-flex align-items-center">
-                                            <img src="#" class="img-fluid rounded-3 cart-img" alt="Game Image">
-                                            <div class="flex-column ms-4">
-                                                <p class="mb-2"><?= $gameDetails['name'] ?></p>
-                                                <p class="mb-0"><?= $gameDetails['developer'] ?></p>
-                                            </div>
-                                        </div>
-                                    </th>
-
-                                    <td class="align-middle">
-                                        <p class="mb-0"><?= $gameDetails['platform'] ?></p>
-                                    </td>
-
-                                    <td class="align-middle">
-                                        <p class="mb-0">€15.00</p>
-                                    </td>
-
-                                    <td class="align-middle">
-                                        <p class="mb-0"><i class="fa-solid fa-xmark"></i></p>
-                                    </td>
-                                </tr>
-                                </tbody>
-
                             </table>
                         </div>
 
@@ -167,21 +215,18 @@
                                                 </div>
 
                                                 <div class="form-outline mb-4 mb-xl-5">
-                                                    <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY"
-                                                           size="7" id="exp" minlength="7" maxlength="7" />
+                                                    <input type="text" class="form-control form-control-lg" placeholder="MM/YY" size="7" id="exp" minlength="7" maxlength="7" />
                                                     <label class="form-label" for="typeExp">Expiration</label>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-xl-6">
                                                 <div class="form-outline mb-4 mb-xl-5">
-                                                    <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                                                           placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" />
+                                                    <input type="text" id="typeText" class="form-control form-control-lg" size="17" placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" />
                                                     <label class="form-label" for="typeText">Card Number</label>
                                                 </div>
 
                                                 <div class="form-outline mb-4 mb-xl-5">
-                                                    <input type="password" id="typeText" class="form-control form-control-lg"
-                                                           placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                                                    <input type="password" id="typeText" class="form-control form-control-lg" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
                                                     <label class="form-label" for="typeText">Cvv</label>
                                                 </div>
                                             </div>

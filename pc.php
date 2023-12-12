@@ -38,12 +38,12 @@
 
                     <div class="d-flex">
                         <?php
-                        session_start();
-                        if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                            echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
-                        } else {
-                            echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
-                        }
+                            session_start();
+                            if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                                echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
+                            } else {
+                                echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
+                            }
                         ?>
                     </div>
 
@@ -103,12 +103,18 @@
                                             </div>
                                             
                                             <div class='card-footer p-4 pt-0 border-top-0 bg-transparent'>
-                                                <div class='text-center'>
-                                                    <form action='../Ramp/phplogic/addToCart.php' method='post'>
-                                                        <input type='hidden' name='game_id' value='{$id}'/>
-                                                        <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
-                                                    </form>
-                                                </div>
+                                                <div class='text-center'>";
+
+                                if (!isset($_SESSION['userLoggedIn']) || $_SESSION['userLoggedIn'] != true) {
+                                    echo "<a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
+                                } else {
+                                    echo "<form action='../Ramp/phplogic/addToCart.php' method='post'>
+                                                            <input type='hidden' name='game_id' value='{$id}'/>
+                                                            <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
+                                                          </form>";
+                                }
+
+                                echo "            </div>
                                             </div>
                                         </div>
                                       </div>";
