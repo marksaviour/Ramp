@@ -108,7 +108,7 @@
                                 if (!isset($_SESSION['userLoggedIn']) || $_SESSION['userLoggedIn'] != true) {
                                     echo "<a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
                                 } else {
-                                    echo "<form action='../Ramp/phplogic/addToCart.php' method='post'>
+                                    echo "<form action='phplogic/add_to_cart.php' method='post'>
                                                             <input type='hidden' name='game_id' value='{$id}'/>
                                                             <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
                                                           </form>";
@@ -130,7 +130,7 @@
         <footer class="text-center text-lg-start bg-dark text-white">
             <div class="container p-4 pb-0">
                 <section class="">
-                    <form method="POST" action="../Ramp/phplogic/submit-news.php" >
+                    <form method="POST" action="phplogic/submit_news.php" >
                         <div class="row d-flex justify-content-center">
                             <div class="col-auto">
                                 <p class="pt-2"><strong>Sign up for our newsletter:</strong></p>

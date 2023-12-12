@@ -185,7 +185,7 @@
         <footer class="text-center text-lg-start bg-dark text-white">
             <div class="container p-4 pb-0">
                 <section class="">
-                    <form method="POST" action="../Ramp/phplogic/submit-news.php" >
+                    <form method="POST" action="phplogic/submit_news.php" >
                         <div class="row d-flex justify-content-center">
                             <div class="col-auto">
                                 <p class="pt-2"><strong>Sign up for our newsletter:</strong></p>
