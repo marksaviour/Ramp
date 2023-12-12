@@ -9,9 +9,8 @@
     $sql->bind_param("ss", $game_id, $email);
 
     if ($sql->execute()) {
-        header("Location: ../Ramp/cart.php");
+        header("Location: ../cart.php");
     } else {
-        // Handle error, maybe redirect to an error page
         header("Location: ../Ramp/error.php");
     }
     exit();
