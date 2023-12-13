@@ -44,18 +44,14 @@
                             if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
                                 echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
                             } else {
-                                echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
+                                echo '<a href="../Ramp/login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
                             }
                         ?>
                     </div>
 
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-dark"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -78,98 +74,99 @@
                                 </thead>
 
                                 <tbody>
-                                <?php
-                                session_start();
-                                include "../Ramp/phplogic/dbcon.php";
+                                    <?php
+                                        session_start();
+                                        include "../Ramp/phplogic/dbcon.php";
 
-                                if (!isset($_SESSION['email'])) {
-                                    header("Location: ../Ramp/login.php");
-                                    exit();
-                                }
-
-                                $sql = $_SESSION['conn']->prepare("SELECT game_id FROM cart WHERE email = ?");
-                                $sql->bind_param("s", $_SESSION["email"]);
-                                $sql->execute();
-                                $result = $sql->get_result();
-
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        $game_id = $row['game_id'];
-
-                                        // Start API Connection
-                                        $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
-                                        $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
-
-                                        $curl = curl_init();
-
-                                        curl_setopt_array($curl, [
-                                            CURLOPT_URL => "https://api.igdb.com/v4/games/",
-                                            CURLOPT_RETURNTRANSFER => true,
-                                            CURLOPT_HTTPHEADER => [
-                                                "Client-ID: {$clientId}",
-                                                "Authorization: {$authToken}",
-                                                "Content-Type: application/json"
-                                            ],
-                                            CURLOPT_CUSTOMREQUEST => 'POST',
-                                            CURLOPT_POSTFIELDS => 'fields name,cover.url; where id = '.$game_id.';',
-                                        ]);
-
-                                        $response = curl_exec($curl);
-
-                                        if ($response === false) {
-                                            echo 'Request Error:' . curl_error($curl);
-                                        } else {
-                                            $games = json_decode($response, true);
-
-                                            if (json_last_error() === JSON_ERROR_NONE) {
-                                                foreach ($games as $game) {
-                                                    $id = $game['id'];
-                                                    $name = $game['name'];
-                                                    $imageUrl = $game['cover']['url'];
-                                                    $altText = "Cover image for {$name}";
-                                                    $developer = $game['involved_companies'][0]['company']['name'];
-                                                    $platform = $game['platforms'][0]['name'];
-
-
-                                                    echo "<tr data-game-id='{$id}'>
-                                                            <th scope='row'>
-                                                                <div class='d-flex align-items-center'>
-                                                                    <img src='{$imageUrl}' class='img-fluid rounded-3 cart-img' alt='{$altText}'>
-                                                                    <div class='flex-column ms-4'>
-                                                                        <p class='mb-2'>{$name}</p>
-                                                                        <p class='mb-0'>{$developer}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </th>
-                        
-                                                            <td class='align-middle'>
-                                                                <p class='mb-0'>{$platform}</p>
-                                                            </td>
-                        
-                                                            <td class='align-middle'>
-                                                                <p class='mb-0'>€15.00</p>
-                                                            </td>
-                        
-                                                            <td class='align-middle'>
-                                                                <form action='../Ramp/phplogic/delete_from_cart.php' method='post'>
-                                                                    <input type='hidden' name='game_id' value='{$game_id}'>
-                                                                    <button type='submit' class='btn btn-danger'>
-                                                                        <i class='fa-solid fa-xmark'></i>
-                                                                    </button>
-                                                                </form>
-                                                            </td>
-                                                          </tr>";
-                                                }
-                                            } else {
-                                                echo "JSON Decode Error: " . json_last_error_msg();
-                                            }
+                                        if (!isset($_SESSION['email'])) {
+                                            header("Location: ../Ramp/login.php");
+                                            exit();
                                         }
-                                    }
-                                } else {
-                                    header("Location: ../error.php");
-                                    exit();
-                                }
-                                ?>
+
+                                        $sql = $_SESSION['conn']->prepare("SELECT game_id FROM cart WHERE email = ?");
+                                        $sql->bind_param("s", $_SESSION["email"]);
+                                        $sql->execute();
+                                        $result = $sql->get_result();
+
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) {
+                                                $game_id = $row['game_id'];
+
+                                                // Start API Connection
+                                                $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
+                                                $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
+
+                                                $curl = curl_init();
+
+                                                curl_setopt_array($curl, [
+                                                    CURLOPT_URL => "https://api.igdb.com/v4/games/",
+                                                    CURLOPT_RETURNTRANSFER => true,
+                                                    CURLOPT_HTTPHEADER => [
+                                                        "Client-ID: {$clientId}",
+                                                        "Authorization: {$authToken}",
+                                                        "Content-Type: application/json"
+                                                    ],
+                                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                                    CURLOPT_POSTFIELDS => 'fields name,cover.url; where id = '.$game_id.';',
+                                                ]);
+
+                                                $response = curl_exec($curl);
+
+                                                if ($response === false) {
+                                                    echo 'Request Error:' . curl_error($curl);
+                                                } else {
+                                                    $games = json_decode($response, true);
+
+                                                    if (json_last_error() === JSON_ERROR_NONE) {
+                                                        foreach ($games as $game) {
+                                                            $id = $game['id'];
+                                                            $name = $game['name'];
+                                                            $imageUrl = $game['cover']['url'];
+                                                            $altText = "Cover image for {$name}";
+                                                            $developer = $game['involved_companies'][0]['company']['name'];
+                                                            $platform = $game['platforms'][0]['name'];
+                                                            $price = 15.00;
+
+
+                                                            echo "<tr data-game-id='{$id}'>
+                                                                    <th scope='row'>
+                                                                        <div class='d-flex align-items-center'>
+                                                                            <img src='{$imageUrl}' class='img-fluid rounded-3 cart-img' alt='{$altText}'>
+                                                                            <div class='flex-column ms-4'>
+                                                                                <p class='mb-2'>{$name}</p>
+                                                                                <p class='mb-0'>{$developer}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                
+                                                                    <td class='align-middle'>
+                                                                        <p class='mb-0'>{$platform}</p>
+                                                                    </td>
+                                
+                                                                    <td class='align-middle'>
+                                                                        <p class='mb-0'>€{$price}</p>
+                                                                    </td>
+                                
+                                                                    <td class='align-middle'>
+                                                                        <form action='../Ramp/phplogic/delete_from_cart.php' method='post'>
+                                                                            <input type='hidden' name='game_id' value='{$game_id}'>
+                                                                            <button type='submit' class='btn btn-danger'>
+                                                                                <i class='fa-solid fa-xmark'></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </td>
+                                                                  </tr>";
+                                                        }
+                                                    } else {
+                                                        echo "JSON Decode Error: " . json_last_error_msg();
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            header("Location: ../Ramp/error.php");
+                                            exit();
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -227,7 +224,7 @@
 
                                                 <div class="form-outline mb-4 mb-xl-5">
                                                     <input type="text" class="form-control form-control-lg" placeholder="MM/YY" size="7" id="exp" minlength="7" maxlength="7" />
-                                                    <label class="form-label" for="typeExp">Expiration</label>
+                                                    <label class="form-label" for="exp">Expiration</label>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-xl-6">
