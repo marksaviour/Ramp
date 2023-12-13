@@ -64,7 +64,7 @@
         </nav>
 
         <!-- Products -->
-        <section class="py-5">
+        <section class="container py-5 min-vh-100">
             <h1 class="text-center">Search Results for: <?php echo $_GET['search'];?></h1>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
