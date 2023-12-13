@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience.">
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Improved layout of search results and updated login/logout buttons&#10;&#10;Redesigned the search results section layout in search.php for better readability and alignment. Also adjusted button classes in cart.php for login and logout options to enhance user-interface. The goal is to improve overall user experience.">
+      <change afterPath="$PROJECT_DIR$/passchange.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phplogic/change_logic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/search.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +100,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/" />
       <recent name="$PROJECT_DIR$" />
@@ -147,7 +154,7 @@
       <workItem from="1701796519115" duration="4000" />
       <workItem from="1701796525452" duration="1539000" />
       <workItem from="1701888739050" duration="1262000" />
-      <workItem from="1701894405666" duration="86598000" />
+      <workItem from="1701894405666" duration="93923000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -341,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702449203420</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Improved layout of search results and updated login/logout buttons&#10;&#10;Redesigned the search results section layout in search.php for better readability and alignment. Also adjusted button classes in cart.php for login and logout options to enhance user-interface. The goal is to improve overall user experience.">
+      <option name="closed" value="true" />
+      <created>1702449319213</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702449319213</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,6 +391,7 @@
     <MESSAGE value="&quot;Update layout and navigation on various pages&quot;&#10;&#10;Updated the layout and navigation across several pages, including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. Changes encompass removing classes from buttons, modifying alignment and styles for better accessibility, adding close buttons on login and sign up pages, and introducing a better rating display for games. These modifications are aimed at improving user experience and enhancing site navigation." />
     <MESSAGE value="&quot;Implemented search feature and improved user interface&quot;&#10;&#10;Added search functionality across various pages for improved usability. Also, adjusted the layout, navigation, and button styles on several pages to improve the user interface. Furthermore, success and error messages were added to cart operations for better user experience." />
     <MESSAGE value="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience." />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience." />
+    <MESSAGE value="Improved layout of search results and updated login/logout buttons&#10;&#10;Redesigned the search results section layout in search.php for better readability and alignment. Also adjusted button classes in cart.php for login and logout options to enhance user-interface. The goal is to improve overall user experience." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved layout of search results and updated login/logout buttons&#10;&#10;Redesigned the search results section layout in search.php for better readability and alignment. Also adjusted button classes in cart.php for login and logout options to enhance user-interface. The goal is to improve overall user experience." />
   </component>
 </project>

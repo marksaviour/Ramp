@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="d-flex">
-                        <a href="#" class="btn btn-outline-dark"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+                        <a href="#" class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
                     </div>
                 </div>
             </div>
@@ -182,6 +182,8 @@
                                     } else {
                                         header("Location: ../Ramp/error.php");
                                         exit();
+
+                                        echo "joe biden";
                                     }
                                 ?>
                             </tbody>

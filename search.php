@@ -85,7 +85,7 @@
                                 "Content-Type: application/json"
                             ],
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => "fields name,cover.url; where name ~ *\"".urlencode($search)."\"*;",
+                            CURLOPT_POSTFIELDS => "fields name,cover.url; where name ~ *\"".urlencode($search)."\"*; limit 100;",
                         ]);
 
                         $response = curl_exec($curl);
