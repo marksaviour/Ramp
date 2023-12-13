@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>RAMP - Coming Soon</title>
+        <title>RAMP - Game Rentals (PC)</title>
         <link rel="icon" type="image/x-icon" href="../Ramp/assets/images/logo/logo.svg"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/65953c8738.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../Ramp/css/style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -35,162 +35,106 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="#">Coming Soon</a></li>
+                        <li class="nav-item"><a class="nav-link" href="comingsoon.php">Coming Soon</a></li>
                     </ul>
 
                     <div class="d-flex">
-                        <form class="d-flex" action="search.php" method="get">
-                            <input type="search" id="searchBar" class="form-control mr-2" placeholder="Search" aria-label="Search" name="search">
-                            <button class="btn btn-outline" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </div>
-
-                    <div class="d-flex">
                         <?php
-                            session_start();
-                            if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                                echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn"><i class="fa-solid fa-user"></i> Logout</a>';
-                            } else {
-                                echo '<a href="login.php" class="btn"><i class="fa-solid fa-user"></i> Login</a>';
-                            }
+                        session_start();
+                        if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                            echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn"><i class="fa-solid fa-user"></i> Logout</a>';
+                        } else {
+                            echo '<a href="login.php" class="btn"><i class="fa-solid fa-user"></i> Login</a>';
+                        }
                         ?>
                     </div>
 
                     <div class="d-flex">
                         <?php
-                            session_start();
-                            if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                                echo '<a href="cart.php" class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
-                            } else {
-                                echo '<a href="login.php" class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
-                            }
+                        session_start();
+                        if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
+                            echo '<a href="cart.php" class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
+                        } else {
+                            echo '<a href="login.php" class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
+                        }
                         ?>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <header class="py-5 bg-light border-bottom mb-4">
-            <div class="container">
-                <div class="text-center my-5">
-                    <h1 class="fw-bolder">Coming Soon</h1>
-                    <p class="lead mb-0">See what games are coming out in the next 7 days!</p>
-                </div>
-            </div>
-        </header>
+        <!-- Products -->
+        <section class="py-5">
+            <h1 class="text-center">Search Results for: <?php echo $_GET['search'];?></h1>
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <?php
+                        $search = $_GET['search'];
 
+                        $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
+                        $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
 
-        <!-- Page content-->
-        <div class="container">
-            <div class='row'>
-            <?php
-                // Declare Variables for time
-                $currentTime = time();
-                $weekTime = strtotime("+7 days", $currentTime);
+                        $curl = curl_init();
 
-                // Declare API Key Variables
-                $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
-                $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
+                        curl_setopt_array($curl, [
+                            CURLOPT_URL => "https://api.igdb.com/v4/games/",
+                            CURLOPT_RETURNTRANSFER => true,
+                            CURLOPT_HTTPHEADER => [
+                                "Client-ID: {$clientId}",
+                                "Authorization: {$authToken}",
+                                "Content-Type: application/json"
+                            ],
+                            CURLOPT_CUSTOMREQUEST => 'POST',
+                            CURLOPT_POSTFIELDS => "fields name,cover.url; where name ~ *\"".urlencode($search)."\"*;",
+                        ]);
 
-                //Start API Link
-                function makeIGDBRequest($url, $postFields) {
-                    global $clientId, $authToken;
-                    $curl = curl_init();
-                    curl_setopt_array($curl, [
-                        CURLOPT_URL => $url,
-                        CURLOPT_RETURNTRANSFER => true,
-                        CURLOPT_HTTPHEADER => [
-                            "Client-ID: {$clientId}",
-                            "Authorization: {$authToken}",
-                            "Content-Type: application/json"
-                        ],
-                        CURLOPT_CUSTOMREQUEST => "POST",
-                        CURLOPT_POSTFIELDS => $postFields,
-                    ]);
+                        $response = curl_exec($curl);
 
-                    $response = curl_exec($curl);
-                    if(curl_errno($curl)){
-                        echo 'Request Error:' . curl_error($curl);
-                    }
-                    curl_close($curl);
-                    return json_decode($response, true);
-                }
+                        if(curl_errno($curl)){
+                            echo 'Request Error:' . curl_error($curl);
+                        } else {
+                            $games = json_decode($response, true);
+                            if (empty($games)) {
+                                echo "<p>No results found</p>";
+                            } else {
+                                foreach ($games as $game) {
+                                    $id = $game['id'];
+                                    $name = $game['name'];
+                                    $imageUrl = $game['cover']['url'];
+                                    $altText = "Cover image for {$name}";
 
-                // Fetch Release Dates
-                $gamesReleaseDates = makeIGDBRequest("https://api.igdb.com/v4/release_dates/",
-                                                     "fields game, date; where date > {$currentTime} & date < {$weekTime}; sort date asc; limit 500;");
+                                    echo "<div class='col mb-5'>
+                                                                <div class='card h-100'>
+                                                                    <img class='card-img-top' src='{$imageUrl}' alt='{$altText}'/>
+                                                                    <div class='card-body p-4'>
+                                                                        <div class='text-center'>
+                                                                            <h5 class='fw-bolder'>{$name}</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class='card-footer p-4 pt-0 border-top-0 bg-transparent'>
+                                                                        <div class='text-center'>";
 
-                // Extract game IDs from the first response
-                $gameIds = array_column($gamesReleaseDates, 'game');
-
-                // Fetch Game Details
-                $gameDetailsQuery = "fields name, cover.url, summary, involved_companies.company.name; where id = (" . implode(',', $gameIds) . "); limit 500; sort date asc;";
-                $gamesDetails = makeIGDBRequest("https://api.igdb.com/v4/games/", $gameDetailsQuery);
-
-                //Combine the Data
-                $combinedData = [];
-
-                // Array to keep track of outputted games
-                $processedGames = [];
-
-                foreach ($gamesDetails as $detail) {
-                    // Check if the game has already been outputted
-                    if (isset($processedGames[$detail['id']])) {
-                        continue;
-                    }
-
-                    foreach ($gamesReleaseDates as $releaseDate) {
-                        if ($releaseDate['game'] == $detail['id']) {
-                            // Check if the game has a cover, developer, and summary
-                            if (!empty($detail['cover']['url']) && !empty($detail['involved_companies'][0]['company']['name']) && !empty($detail['summary'])) {
-                                $combinedData[] = array_merge($detail, ['release_date' => $releaseDate['date']]);
-                                $processedGames[$detail['id']] = true;
-                                break;
+                                    if (!isset($_SESSION['userLoggedIn']) || $_SESSION['userLoggedIn'] != true) {
+                                        echo "             <a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
+                                    } else {
+                                        echo "             <form action='phplogic/add_to_cart.php' method='post'>
+                                                                                <input type='hidden' name='game_id' value='{$id}'/>
+                                                                                <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
+                                                                           </form>";
+                                    }
+                                    echo "              </div>
+                                                  </div>
+                                            </div>
+                                    </div>";
+                                }
                             }
                         }
-                    }
-                }
-
-                foreach ($gamesReleaseDates as $releaseDate) {
-                    if ($releaseDate['game'] == $detail['id']) {
-                        $combinedData[] = array_merge($detail, ['release_date' => $releaseDate['date']]);
-                        $processedGames[$detail['id']] = true;
-                        break;
-                    }
-                }
-
-                // Function to compare release dates
-                function compareReleaseDates($a, $b) {
-                    return $a['release_date'] - $b['release_date'];
-                }
-
-                // Sort the combined data by release date
-                usort($combinedData, 'compareReleaseDates');
-
-                // Display the combined data
-                foreach ($combinedData as $game) {
-                    $releaseDate = date("Y-m-d", $game['release_date']);
-                    $name = $game['name'];
-                    $imageUrl = $game['cover']['url'];
-                    $altText = "Cover image for {$name}";
-                    $developer = $game['involved_companies'][0]['company']['name'];
-                    $summary = $game['summary'];
-
-                    echo "<div class='col-lg-6'>
-                                <div class='card mb-4'>
-                                    <a href='#'><img class='card-img-top' src='{$imageUrl}' alt='{$altText}' /></a>
-                                    <div class='card-body'>
-                                        <div class='small text-muted'>Release Date: {$releaseDate}</div>
-                                        <h2 class='card-title'>{$name}</h2>
-                                        <div class='small card-title'>Developer: {$developer}</div>
-                                        <p class='card-text'>{$summary}</p>
-                                    </div>
-                                </div>
-                          </div>";
-                }
-            ?>
+                        curl_close($curl);
+                    ?>
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Footer-->
         <footer class="text-center text-lg-start bg-dark text-white">
@@ -259,7 +203,6 @@
                 <p class="blockquote-footer">&copy;2023 Copyright: RAMP</p>
             </div>
         </footer>
-
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

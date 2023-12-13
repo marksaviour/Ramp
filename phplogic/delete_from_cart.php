@@ -9,7 +9,9 @@
     $sql->bind_param("ss", $game_id, $email);
 
     if ($sql->execute()) {
-        header("Location: ../cart.php");
+        $success_message = "Item was removed cart";
+        header("Location: ../cart.php?success=" . urlencode($success_message));
+        exit();
     } else {
         header("Location: ../Ramp/error.php");
     }

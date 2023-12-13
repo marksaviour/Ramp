@@ -39,6 +39,13 @@
                     </ul>
 
                     <div class="d-flex">
+                        <form class="d-flex" action="search.php" method="get">
+                            <input type="search" id="searchBar" class="form-control mr-2" placeholder="Search" aria-label="Search" name="search">
+                            <button class="btn btn-outline" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="d-flex">
                         <?php
                         session_start();
                         if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {

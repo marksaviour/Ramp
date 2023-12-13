@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Update navigation and adjust layout in multiple pages&#10;&#10;This update modifies the navigation bar's layout and links across various pages including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. It also removes unused JavaScript code in `scripts.js`. Changes were necessary to improve user experience and enhance site navigation.">
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="&quot;Update layout and navigation on various pages&quot;&#10;&#10;Updated the layout and navigation across several pages, including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. Changes encompass removing classes from buttons, modifying alignment and styles for better accessibility, adding close buttons on login and sign up pages, and introducing a better rating display for games. These modifications are aimed at improving user experience and enhancing site navigation.">
+      <change afterPath="$PROJECT_DIR$/search.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comingsoon.php" beforeDir="false" afterPath="$PROJECT_DIR$/comingsoon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forgot.php" beforeDir="false" afterPath="$PROJECT_DIR$/forgot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nintendo.php" beforeDir="false" afterPath="$PROJECT_DIR$/nintendo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phplogic/add_to_cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/phplogic/add_to_cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phplogic/delete_from_cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/phplogic/delete_from_cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phplogic/search.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/playstation.php" beforeDir="false" afterPath="$PROJECT_DIR$/playstation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xbox.php" beforeDir="false" afterPath="$PROJECT_DIR$/xbox.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +108,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -156,7 +158,7 @@
       <workItem from="1701796519115" duration="4000" />
       <workItem from="1701796525452" duration="1539000" />
       <workItem from="1701888739050" duration="1262000" />
-      <workItem from="1701894405666" duration="77268000" />
+      <workItem from="1701894405666" duration="86338000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -326,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702430514231</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="&quot;Update layout and navigation on various pages&quot;&#10;&#10;Updated the layout and navigation across several pages, including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. Changes encompass removing classes from buttons, modifying alignment and styles for better accessibility, adding close buttons on login and sign up pages, and introducing a better rating display for games. These modifications are aimed at improving user experience and enhancing site navigation.">
+      <option name="closed" value="true" />
+      <created>1702439182866</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1702439182866</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +368,7 @@
     <MESSAGE value="Changes made to the coming soon page.&#10;&#10;Changes made to prevent games without a photo from showing up in store pages" />
     <MESSAGE value="Changes made to the login, signup and forgot password pages" />
     <MESSAGE value="Update navigation and adjust layout in multiple pages&#10;&#10;This update modifies the navigation bar's layout and links across various pages including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. It also removes unused JavaScript code in `scripts.js`. Changes were necessary to improve user experience and enhance site navigation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update navigation and adjust layout in multiple pages&#10;&#10;This update modifies the navigation bar's layout and links across various pages including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. It also removes unused JavaScript code in `scripts.js`. Changes were necessary to improve user experience and enhance site navigation." />
+    <MESSAGE value="&quot;Update layout and navigation on various pages&quot;&#10;&#10;Updated the layout and navigation across several pages, including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. Changes encompass removing classes from buttons, modifying alignment and styles for better accessibility, adding close buttons on login and sign up pages, and introducing a better rating display for games. These modifications are aimed at improving user experience and enhancing site navigation." />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Update layout and navigation on various pages&quot;&#10;&#10;Updated the layout and navigation across several pages, including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. Changes encompass removing classes from buttons, modifying alignment and styles for better accessibility, adding close buttons on login and sign up pages, and introducing a better rating display for games. These modifications are aimed at improving user experience and enhancing site navigation." />
   </component>
 </project>

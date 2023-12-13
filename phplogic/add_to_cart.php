@@ -18,7 +18,7 @@
         if ($count > 0) {
             $error_message = "Item is already in cart";
             header("Location: ../cart.php?error=" . urlencode($error_message));
-            exit(); // Make sure to exit after sending header
+            exit();
         } else {
             $query = "INSERT INTO cart (email, game_id) VALUES (?, ?)";
 
@@ -29,6 +29,6 @@
 
             $success_message = "Item has been successfully added to the cart";
             header("Location: ../cart.php?success=" . urlencode($success_message));
-            exit(); // Make sure to exit after sending header
+            exit();
         }
     }

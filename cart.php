@@ -39,6 +39,13 @@
                     </ul>
 
                     <div class="d-flex">
+                        <form class="d-flex" action="search.php" method="get">
+                            <input type="search" id="searchBar" class="form-control mr-2" placeholder="Search" aria-label="Search" name="search">
+                            <button class="btn btn-outline" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="d-flex">
                         <?php
                             session_start();
                             if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
@@ -57,221 +64,183 @@
         </nav>
 
         <!--Cart-->
-        <section class="h-100 h-custom">
-            <div class="container h-100 py-5">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col">
+        <section class="container py-5 min-vh-100">
+            <h1 class="text-center">Shopping Basket</h1>
 
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col" class="h5">Shopping Bag</th>
-                                    <th scope="col">Platform</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col"><i class="fa-solid fa-xmark"></i></th>
-                                </tr>
-                                </thead>
+            <!-- Success/Error Messages -->
+            <?php if(isset($_GET['success'])) { ?>
+                <div class="alert alert-success" role="alert"> <?php echo htmlspecialchars($_GET['success']); ?></div>
+            <?php } ?>
 
-                                <tbody>
-                                    <?php
-                                        session_start();
-                                        include "../Ramp/phplogic/dbcon.php";
+            <?php if(isset($_GET['error'])) { ?>
+                <div class="alert alert-danger" role="alert"> <?php echo htmlspecialchars($_GET['error']); ?></div>
+            <?php } ?>
 
-                                        if (!isset($_SESSION['email'])) {
-                                            header("Location: ../Ramp/login.php");
-                                            exit();
-                                        }
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-xl-9">
+                        <table class="table">
+                            <thead>
+                            <tr class="text-center">
+                                <th scope="col">Game</th>
+                                <th scope="col">Hours</th>
+                                <th scope="col">Price</th>
+                                <th scope="col"><i class="fa-solid fa-xmark"></i></th>
+                            </tr>
+                            </thead>
 
-                                        $sql = $_SESSION['conn']->prepare("SELECT game_id FROM cart WHERE email = ?");
-                                        $sql->bind_param("s", $_SESSION["email"]);
-                                        $sql->execute();
-                                        $result = $sql->get_result();
+                            <tbody>
+                                <?php
+                                    session_start();
+                                    include "../Ramp/phplogic/dbcon.php";
 
-                                        if ($result->num_rows > 0) {
-                                            while ($row = $result->fetch_assoc()) {
-                                                $game_id = $row['game_id'];
+                                    if (!isset($_SESSION['email'])) {
+                                        header("Location: ../Ramp/login.php");
+                                        exit();
+                                    }
 
-                                                // Start API Connection
-                                                $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
-                                                $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
+                                    $sql = $_SESSION['conn']->prepare("SELECT game_id FROM cart WHERE email = ?");
+                                    $sql->bind_param("s", $_SESSION["email"]);
+                                    $sql->execute();
+                                    $result = $sql->get_result();
 
-                                                $curl = curl_init();
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            $game_id = $row['game_id'];
 
-                                                curl_setopt_array($curl, [
-                                                    CURLOPT_URL => "https://api.igdb.com/v4/games/",
-                                                    CURLOPT_RETURNTRANSFER => true,
-                                                    CURLOPT_HTTPHEADER => [
-                                                        "Client-ID: {$clientId}",
-                                                        "Authorization: {$authToken}",
-                                                        "Content-Type: application/json"
-                                                    ],
-                                                    CURLOPT_CUSTOMREQUEST => 'POST',
-                                                    CURLOPT_POSTFIELDS => 'fields name,cover.url; where id = '.$game_id.';',
-                                                ]);
+                                            // Start API Connection
+                                            $clientId = 'p28s8c005mhip2mq7e97o4fngl8075';
+                                            $authToken = 'Bearer k9jnsr4idy5c45j61zc8h3gc1ulawr';
 
-                                                $response = curl_exec($curl);
+                                            $curl = curl_init();
 
-                                                if ($response === false) {
-                                                    echo 'Request Error:' . curl_error($curl);
-                                                } else {
-                                                    $games = json_decode($response, true);
+                                            curl_setopt_array($curl, [
+                                                CURLOPT_URL => "https://api.igdb.com/v4/games/",
+                                                CURLOPT_RETURNTRANSFER => true,
+                                                CURLOPT_HTTPHEADER => [
+                                                    "Client-ID: {$clientId}",
+                                                    "Authorization: {$authToken}",
+                                                    "Content-Type: application/json"
+                                                ],
+                                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                                CURLOPT_POSTFIELDS => 'fields name,cover.url; where id = '.$game_id.';',
+                                            ]);
 
-                                                    if (json_last_error() === JSON_ERROR_NONE) {
-                                                        foreach ($games as $game) {
-                                                            $id = $game['id'];
-                                                            $name = $game['name'];
-                                                            $imageUrl = $game['cover']['url'];
-                                                            $altText = "Cover image for {$name}";
-                                                            $developer = $game['involved_companies'][0]['company']['name'];
-                                                            $platform = $game['platforms'][0]['name'];
-                                                            $price = 15.00;
+                                            $response = curl_exec($curl);
+
+                                            if ($response === false) {
+                                                echo 'Request Error:' . curl_error($curl);
+                                            } else {
+                                                $games = json_decode($response, true);
+
+                                                if (json_last_error() === JSON_ERROR_NONE) {
+                                                    foreach ($games as $game) {
+                                                        $id = $game['id'];
+                                                        $name = $game['name'];
+                                                        $imageUrl = $game['cover']['url'];
+                                                        $altText = "Cover image for {$name}";
+                                                        $platform = $game['platforms'][0]['name'];
+                                                        $price = 15.00;
 
 
-                                                            echo "<tr data-game-id='{$id}'>
-                                                                    <th scope='row'>
-                                                                        <div class='d-flex align-items-center'>
-                                                                            <img src='{$imageUrl}' class='img-fluid rounded-3 cart-img' alt='{$altText}'>
-                                                                            <div class='flex-column ms-4'>
-                                                                                <p class='mb-2'>{$name}</p>
-                                                                                <p class='mb-0'>{$developer}</p>
-                                                                            </div>
+                                                        echo "<tr data-game-id='{$id}'>
+                                                                <th scope='row'>
+                                                                    <div class='d-flex align-items-center'>
+                                                                        <img src='{$imageUrl}' class='img-fluid rounded-3 cart-img' alt='{$altText}'>
+                                                                        <div class='flex-column ms-4'>
+                                                                            <p class='mb-2'>{$name}</p>
                                                                         </div>
-                                                                    </th>
-                                
-                                                                    <td class='align-middle'>
-                                                                        <p class='mb-0'>{$platform}</p>
-                                                                    </td>
-                                
-                                                                    <td class='align-middle'>
-                                                                        <p class='mb-0'>€{$price}</p>
-                                                                    </td>
-                                
-                                                                    <td class='align-middle'>
-                                                                        <form action='../Ramp/phplogic/delete_from_cart.php' method='post'>
-                                                                            <input type='hidden' name='game_id' value='{$game_id}'>
-                                                                            <button type='submit' class='btn btn-danger'>
-                                                                                <i class='fa-solid fa-xmark'></i>
-                                                                            </button>
-                                                                        </form>
-                                                                    </td>
-                                                                  </tr>";
-                                                        }
-                                                    } else {
-                                                        echo "JSON Decode Error: " . json_last_error_msg();
+                                                                    </div>
+                                                                </th>
+                            
+                                                                <td class='align-middle text-center col-1'>
+                                                                    <input type='number' id='hours-{$id}' class='form-control' value='1' min='1' onchange='calculateTotal()'>
+                                                                </td>
+
+
+                                                                </td>
+                            
+                                                                <td class='align-middle text-center'>
+                                                                    <p class='mb-0'>€{$price}</p>
+                                                                </td>
+                            
+                                                                <td class='align-middle text-center'>
+                                                                    <form action='../Ramp/phplogic/delete_from_cart.php' method='post'>
+                                                                        <input type='hidden' name='game_id' value='{$game_id}'>
+                                                                        <button type='submit' class='btn btn-danger'>
+                                                                            <i class='fa-solid fa-xmark'></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </td>
+                                                              </tr>";
                                                     }
+                                                } else {
+                                                    echo "JSON Decode Error: " . json_last_error_msg();
                                                 }
                                             }
-                                        } else {
-                                            header("Location: ../Ramp/error.php");
-                                            exit();
                                         }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                    } else {
+                                        header("Location: ../Ramp/error.php");
+                                        exit();
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+                    <div class="col-lg-4 col-xl-3">
+                        <div class="card shadow-2-strong">
                             <div class="card-body p-4">
-
-                                <div class="row">
-                                    <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
-                                        <form>
-                                            <div class="d-flex flex-row pb-3">
-                                                <div class="d-flex align-items-center pe-2">
-                                                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
-                                                           value="" aria-label="..." checked />
-                                                </div>
-                                                <div class="rounded border w-100 p-3">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <i class="fab fa-cc-mastercard fa-2x text-dark pe-2"></i>Credit
-                                                        Card
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row pb-3">
-                                                <div class="d-flex align-items-center pe-2">
-                                                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2v"
-                                                           value="" aria-label="..." />
-                                                </div>
-                                                <div class="rounded border w-100 p-3">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <i class="fab fa-cc-visa fa-2x fa-lg text-dark pe-2"></i>Debit Card
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row">
-                                                <div class="d-flex align-items-center pe-2">
-                                                    <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3v"
-                                                           value="" aria-label="..." />
-                                                </div>
-                                                <div class="rounded border w-100 p-3">
-                                                    <p class="d-flex align-items-center mb-0">
-                                                        <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-6">
-                                        <div class="row">
-                                            <div class="col-12 col-xl-6">
-                                                <div class="form-outline mb-4 mb-xl-5">
-                                                    <input type="text" id="typeName" class="form-control form-control-lg" size="17"
-                                                           placeholder="John Smith" />
-                                                    <label class="form-label" for="typeName">Name on card</label>
-                                                </div>
-
-                                                <div class="form-outline mb-4 mb-xl-5">
-                                                    <input type="text" class="form-control form-control-lg" placeholder="MM/YY" size="7" id="exp" minlength="7" maxlength="7" />
-                                                    <label class="form-label" for="exp">Expiration</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-xl-6">
-                                                <div class="form-outline mb-4 mb-xl-5">
-                                                    <input type="text" id="typeText" class="form-control form-control-lg" size="17" placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" />
-                                                    <label class="form-label" for="typeText">Card Number</label>
-                                                </div>
-
-                                                <div class="form-outline mb-4 mb-xl-5">
-                                                    <input type="password" id="typeText" class="form-control form-control-lg" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                                                    <label class="form-label" for="typeText">Cvv</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-xl-3">
-                                        <div class="d-flex justify-content-between" style="font-weight: 500;">
-                                            <p class="mb-2">Subtotal</p>
-                                            <p class="mb-2">$23.49</p>
-                                        </div>
-
-                                        <div class="d-flex justify-content-between" style="font-weight: 500;">
-                                            <p class="mb-0">Shipping</p>
-                                            <p class="mb-0">$2.99</p>
-                                        </div>
-
-                                        <hr class="my-4">
-
-                                        <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
-                                            <p class="mb-2">Total (tax included)</p>
-                                            <p class="mb-2">$26.48</p>
-                                        </div>
-
-                                        <button type="button" class="btn btn-primary btn-block btn-lg">
-                                            <div class="d-flex justify-content-between">
-                                                <span>Checkout</span>
-                                                <span>$26.48</span>
-                                            </div>
-                                        </button>
-
-                                    </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-2">Total Hours</p>
+                                    <p class="mb-2" id="totalHours">1</p>
                                 </div>
 
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-2">Charge (/HR)</p>
+                                    <p class="mb-2" id="chargePerHour">€15.00</p>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <div class="d-flex justify-content-between mb-4">
+                                    <p class="mb-2">Total</p>
+                                    <p class="mb-2" id="totalAmount">€15.00</p>
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-block btn-lg">Checkout</button>
                             </div>
                         </div>
-
                     </div>
+
+
+                    <script>
+                        function calculateTotal() {
+                            var totalCost = 0;
+                            var totalHours = 0;
+                            var rate = parseFloat(document.getElementById("chargePerHour").innerText.replace('€', ''));
+                            var items = document.querySelectorAll("[id^='hours-']");
+
+                            items.forEach(function(item) {
+                                var hours = parseInt(item.value);
+                                if (!isNaN(hours)) {
+                                    totalHours += hours;
+                                    totalCost += hours * rate;
+                                }
+                            });
+
+                            document.getElementById("totalHours").innerText = totalHours;
+                            document.getElementById("totalAmount").innerText = '€' + totalCost.toFixed(2);
+                        }
+
+                        document.addEventListener('DOMContentLoaded', function() {
+                            calculateTotal();
+
+                            document.querySelectorAll("[id^='hours-']").forEach(function(item) {
+                                item.addEventListener('change', calculateTotal);
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </section>
