@@ -42,9 +42,9 @@
                         <?php
                             session_start();
                             if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                                echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
+                                echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn"><i class="fa-solid fa-user"></i> Logout</a>';
                             } else {
-                                echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
+                                echo '<a href="login.php" class="btn"><i class="fa-solid fa-user"></i> Login</a>';
                             }
                         ?>
                     </div>
@@ -53,9 +53,9 @@
                         <?php
                             session_start();
                             if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                                echo '<a href="cart.php" class="btn btn-outline-dark"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
+                                echo '<a href="cart.php" class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
                             } else {
-                                echo '<a href="login.php" class="btn btn-outline-dark"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
+                                echo '<a href="login.php" class="btn"><i class="fa-solid fa-cart-shopping"></i> Cart</a>';
                             }
                         ?>
                     </div>
@@ -195,30 +195,30 @@
                 <div class="container text-center text-md-start mt-5">
                     <div class="row mt-3">
                         <!--Useful Links-->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4 text-center">
                             <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                            <p><a href="index.php" class="text-reset">Home</a></p>
+                            <p><a href="index.php" class="text-decoration-none text-reset">Home</a></p>
                             <?php
                                 session_start();
                                 if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                                    echo '<p><a href="cart.php" class="text-reset">Cart</a></p>';
-                                    echo '<p><a href="../Ramp/phplogic/logout_logic.php" class="text-reset">Logout</a></p>';
+                                    echo '<p><a href="cart.php" class="text-decoration-none text-reset">Cart</a></p>';
+                                    echo '<p><a href="../Ramp/phplogic/logout_logic.php" class="text-decoration-none text-reset">Logout</a></p>';
                                 } else {
-                                    echo '<p><a href="login.php" class="text-reset">Cart</a></p>';
-                                    echo '<p><a href="login.php" class="text-reset">Login</a></p>';
+                                    echo '<p><a href="login.php" class="text-decoration-none text-reset">Cart</a></p>';
+                                    echo '<p><a href="login.php" class="text-decoration-none text-reset">Login</a></p>';
                                 }
                             ?>
-                            <p><a href="comingsoon.php" class="text-reset">Coming Soon</a></p>
+                            <p><a href="comingsoon.php" class="text-decoration-none text-reset">Coming Soon</a></p>
                         </div>
 
                         <!--Where to find Us-->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
-                            <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-location-dot me-3 text-secondary"></i>Where to Find us</h6>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d807.7135626720799!2d14.47561211078151!3d35.92606739828898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e456163c656b5%3A0xabf0a9cf8e5d6724!2s42-40%20Triq%20Giorgio%20Mitrovich%2C%20Pembroke!5e0!3m2!1sen!2smt!4v1699348545531!5m2!1sen!2smt" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4 text-center">
+                            <h6 class=" text-center text-uppercase fw-bold mb-4"><i class="fas fa-location-dot me-3 "></i>Where to Find us</h6>
+                            <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d807.7135626720799!2d14.47561211078151!3d35.92606739828898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e456163c656b5%3A0xabf0a9cf8e5d6724!2s42-40%20Triq%20Giorgio%20Mitrovich%2C%20Pembroke!5e0!3m2!1sen!2smt!4v1699348545531!5m2!1sen!2smt" width="306" height="206" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
                         </div>
 
                         <!--Contact-->
-                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4 text-center">
                             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                             <p><i class="fas fa-home me-3 text-secondary"></i>40 Triq Giorgio Mitrovich, Pembroke</p>
                             <p><i class="fas fa-envelope me-3 text-secondary"></i>info@ramp.com</p>
@@ -229,7 +229,7 @@
                 </div>
             </section>
 
-            <div class="p-4">
+            <div class="p-4 text-center">
                 <p class="blockquote-footer">&copy;2023 Copyright: RAMP</p>
             </div>
         </footer>

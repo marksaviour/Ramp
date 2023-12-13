@@ -13,6 +13,11 @@
 </head>
 
     <body>
+        <!-- Close Button -->
+        <div class="position-absolute top-0 end-0 mt-5 me-5">
+            <a href="index.php" class="btn btn-large btn-close" aria-label="Close"></a>
+        </div>
+
         <div>
             <div class="container-fluid ps-md-0">
                 <div class="row g-0">
