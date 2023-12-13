@@ -49,9 +49,9 @@
                         <?php
                             session_start();
                             if (isset($_SESSION['userLoggedIn']) && $_SESSION['userLoggedIn'] == true) {
-                                echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Logout</a>';
+                                echo '<a href="../Ramp/phplogic/logout_logic.php" class="btn"><i class="fa-solid fa-user"></i> Logout</a>';
                             } else {
-                                echo '<a href="../Ramp/login.php" class="btn btn-outline-dark"><i class="fa-solid fa-user"></i> Login</a>';
+                                echo '<a href="../Ramp/login.php" class="btn"><i class="fa-solid fa-user"></i> Login</a>';
                             }
                         ?>
                     </div>

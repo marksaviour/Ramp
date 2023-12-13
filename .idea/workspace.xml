@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="&quot;Implemented search feature and improved user interface&quot;&#10;&#10;Added search functionality across various pages for improved usability. Also, adjusted the layout, navigation, and button styles on several pages to improve the user interface. Furthermore, success and error messages were added to cart operations for better user experience.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/search.php" afterDir="false" />
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience.">
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,7 @@
       <workItem from="1701796519115" duration="4000" />
       <workItem from="1701796525452" duration="1539000" />
       <workItem from="1701888739050" duration="1262000" />
-      <workItem from="1701894405666" duration="86481000" />
+      <workItem from="1701894405666" duration="86598000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -334,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702449060796</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience.">
+      <option name="closed" value="true" />
+      <created>1702449203420</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1702449203420</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,6 +375,7 @@
     <MESSAGE value="Update navigation and adjust layout in multiple pages&#10;&#10;This update modifies the navigation bar's layout and links across various pages including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. It also removes unused JavaScript code in `scripts.js`. Changes were necessary to improve user experience and enhance site navigation." />
     <MESSAGE value="&quot;Update layout and navigation on various pages&quot;&#10;&#10;Updated the layout and navigation across several pages, including `comingsoon.php`, `cart.php`, `pc.php`, `playstation.php`, and `nintendo.php`. Changes encompass removing classes from buttons, modifying alignment and styles for better accessibility, adding close buttons on login and sign up pages, and introducing a better rating display for games. These modifications are aimed at improving user experience and enhancing site navigation." />
     <MESSAGE value="&quot;Implemented search feature and improved user interface&quot;&#10;&#10;Added search functionality across various pages for improved usability. Also, adjusted the layout, navigation, and button styles on several pages to improve the user interface. Furthermore, success and error messages were added to cart operations for better user experience." />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Implemented search feature and improved user interface&quot;&#10;&#10;Added search functionality across various pages for improved usability. Also, adjusted the layout, navigation, and button styles on several pages to improve the user interface. Furthermore, success and error messages were added to cart operations for better user experience." />
+    <MESSAGE value="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience." />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience." />
   </component>
 </project>
