@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php." />
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Update display and search enhancements, add SQL dump for test data&#10;&#10;This commit includes improvements to the game display and search results to include game rating and cover image, enhancing search visibility and value. An unnecessary print statement from cart.php was removed. Additionally, a SQL dump file was added, containing table structures and test data for the Ramp database." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,27 +73,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.updateprofile.php.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ToolWindowPull Requests.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/marksaviour/Documents/Wolverhampton/(5CS023) Web Development/Website/Ramp",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.updateprofile.php.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowPull Requests.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/marksaviour/Documents/Wolverhampton/(5CS023) Web Development/Website/Ramp&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -161,6 +161,7 @@
       <workItem from="1701888739050" duration="1262000" />
       <workItem from="1701894405666" duration="93953000" />
       <workItem from="1702779123479" duration="10714000" />
+      <workItem from="1702836314029" duration="232000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -394,7 +395,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702836060073</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Update display and search enhancements, add SQL dump for test data&#10;&#10;This commit includes improvements to the game display and search results to include game rating and cover image, enhancing search visibility and value. An unnecessary print statement from cart.php was removed. Additionally, a SQL dump file was added, containing table structures and test data for the Ramp database.">
+      <option name="closed" value="true" />
+      <created>1702836471669</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1702836471669</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,6 +443,8 @@
     <MESSAGE value="Expand search results and improve game display&#10;&#10;Updated the search parameters in search.php to include more information, such as game rating and cover image. Adjusted the game display across multiple pages (platform-specific and main index) to show the game rating. Also removed an unnecessary print statement from cart.php." />
     <MESSAGE value="Update game display and search data, remove print statement&#10;&#10;This commit expands the type of information surfaced in search results by including game rating and cover image. The game display across multiple pages is also adjusted to show this game rating. An unnecessary print statement from cart.php has been removed." />
     <MESSAGE value="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php." />
+    <MESSAGE value="Add SQL dump for Ramp database structure and test data&#10;&#10;This commit adds a new SQL dump file for the Ramp database. The SQL file contains the structure for tables 'cart', 'newsletter', and 'users', and inserts test data into them. Also, updates workspace.xml to reflect the changes." />
+    <MESSAGE value="Update display and search enhancements, add SQL dump for test data&#10;&#10;This commit includes improvements to the game display and search results to include game rating and cover image, enhancing search visibility and value. An unnecessary print statement from cart.php was removed. Additionally, a SQL dump file was added, containing table structures and test data for the Ramp database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update display and search enhancements, add SQL dump for test data&#10;&#10;This commit includes improvements to the game display and search results to include game rating and cover image, enhancing search visibility and value. An unnecessary print statement from cart.php was removed. Additionally, a SQL dump file was added, containing table structures and test data for the Ramp database." />
   </component>
 </project>
