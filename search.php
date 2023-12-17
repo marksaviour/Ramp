@@ -85,7 +85,7 @@
                                 "Content-Type: application/json"
                             ],
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => "fields name,cover.url; where name ~ *\"".urlencode($search)."\"*; limit 100;",
+                            CURLOPT_POSTFIELDS => "fields name,category,platforms,cover.url,rating; where name ~ *\"".urlencode($search)."\"*; limit 100;",
                         ]);
 
                         $response = curl_exec($curl);
@@ -98,10 +98,15 @@
                                 echo "<p>No results found</p>";
                             } else {
                                 foreach ($games as $game) {
+                                    if (!isset($game['cover']['url'])) {
+                                        continue;
+                                    }
+
                                     $id = $game['id'];
                                     $name = $game['name'];
                                     $imageUrl = $game['cover']['url'];
                                     $altText = "Cover image for {$name}";
+                                    $rating = isset($game['rating']) ? round($game['rating']) : 'N/A';
 
                                     echo "<div class='col mb-5'>
                                                                 <div class='card h-100'>
@@ -109,6 +114,7 @@
                                                                     <div class='card-body p-4'>
                                                                         <div class='text-center'>
                                                                             <h5 class='fw-bolder'>{$name}</h5>
+                                                                            <p>Rating: {$rating}</p>
                                                                         </div>
                                                                     </div>
                                                                     
@@ -119,9 +125,9 @@
                                         echo "             <a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
                                     } else {
                                         echo "             <form action='phplogic/add_to_cart.php' method='post'>
-                                                                                <input type='hidden' name='game_id' value='{$id}'/>
-                                                                                <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
-                                                                           </form>";
+                                                            <input type='hidden' name='game_id' value='{$id}'/>
+                                                            <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
+                                                           </form>";
                                     }
                                     echo "              </div>
                                                   </div>

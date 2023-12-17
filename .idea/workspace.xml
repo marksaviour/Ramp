@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Improved layout of search results and updated login/logout buttons&#10;&#10;Redesigned the search results section layout in search.php for better readability and alignment. Also adjusted button classes in cart.php for login and logout options to enhance user-interface. The goal is to improve overall user experience.">
-      <change afterPath="$PROJECT_DIR$/passchange.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phplogic/change_logic.php" afterDir="false" />
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Add password change functionality and update search limit&#10;&#10;Introduced password change functionality with the addition of &quot;passchange.php&quot; and &quot;change_logic.php&quot;. Also updated the search feature in &quot;search.php&quot; to limit search results to 100. Both improvements enhance the user experience.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/carousel-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/carousel-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/carousel-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/slider-img-2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nintendo.php" beforeDir="false" afterPath="$PROJECT_DIR$/nintendo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playstation.php" beforeDir="false" afterPath="$PROJECT_DIR$/playstation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xbox.php" beforeDir="false" afterPath="$PROJECT_DIR$/xbox.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +162,8 @@
       <workItem from="1701796519115" duration="4000" />
       <workItem from="1701796525452" duration="1539000" />
       <workItem from="1701888739050" duration="1262000" />
-      <workItem from="1701894405666" duration="93923000" />
+      <workItem from="1701894405666" duration="93953000" />
+      <workItem from="1702779123479" duration="6410000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -356,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702449319213</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Add password change functionality and update search limit&#10;&#10;Introduced password change functionality with the addition of &quot;passchange.php&quot; and &quot;change_logic.php&quot;. Also updated the search feature in &quot;search.php&quot; to limit search results to 100. Both improvements enhance the user experience.">
+      <option name="closed" value="true" />
+      <created>1702510970105</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1702510970105</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +409,7 @@
     <MESSAGE value="&quot;Implemented search feature and improved user interface&quot;&#10;&#10;Added search functionality across various pages for improved usability. Also, adjusted the layout, navigation, and button styles on several pages to improve the user interface. Furthermore, success and error messages were added to cart operations for better user experience." />
     <MESSAGE value="&quot;Updated search results section layout&quot;&#10;&#10;Adjusted the layout of the &quot;search results&quot; section in search.php, applying new CSS classes to enhance alignment and readability. This modification aims to improve the user-interface and overall user experience." />
     <MESSAGE value="Improved layout of search results and updated login/logout buttons&#10;&#10;Redesigned the search results section layout in search.php for better readability and alignment. Also adjusted button classes in cart.php for login and logout options to enhance user-interface. The goal is to improve overall user experience." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved layout of search results and updated login/logout buttons&#10;&#10;Redesigned the search results section layout in search.php for better readability and alignment. Also adjusted button classes in cart.php for login and logout options to enhance user-interface. The goal is to improve overall user experience." />
+    <MESSAGE value="Add password change functionality and update search limit&#10;&#10;Introduced password change functionality with the addition of &quot;passchange.php&quot; and &quot;change_logic.php&quot;. Also updated the search feature in &quot;search.php&quot; to limit search results to 100. Both improvements enhance the user experience." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add password change functionality and update search limit&#10;&#10;Introduced password change functionality with the addition of &quot;passchange.php&quot; and &quot;change_logic.php&quot;. Also updated the search feature in &quot;search.php&quot; to limit search results to 100. Both improvements enhance the user experience." />
   </component>
 </project>

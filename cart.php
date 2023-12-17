@@ -99,10 +99,12 @@
                                         exit();
                                     }
 
-                                    $sql = $_SESSION['conn']->prepare("SELECT game_id FROM cart WHERE email = ?");
+                                    $sql = $_SESSION['conn']->prepare('SELECT game_id FROM cart WHERE email = ?');
                                     $sql->bind_param("s", $_SESSION["email"]);
                                     $sql->execute();
                                     $result = $sql->get_result();
+
+                                    echo $result;
 
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
@@ -182,8 +184,6 @@
                                     } else {
                                         header("Location: ../Ramp/error.php");
                                         exit();
-
-                                        echo "joe biden";
                                     }
                                 ?>
                             </tbody>
@@ -210,7 +210,7 @@
                                     <p class="mb-2" id="totalAmount">€15.00</p>
                                 </div>
 
-                                <button type="button" class="btn btn-primary btn-block btn-lg">Checkout</button>
+                                <a href="error.php"><button type="button" class="btn btn-primary btn-block btn-lg">Checkout</button></a>
                             </div>
                         </div>
                     </div>

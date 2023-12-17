@@ -73,6 +73,7 @@
         <!-- Products -->
         <section class="py-5">
             <h1 class="text-center">PC</h1>
+            <p class="text-center">Sorted by Highest Rated</p>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php
@@ -127,15 +128,15 @@
                                 echo "<a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
                             } else {
                                 echo "<form action='phplogic/add_to_cart.php' method='post'>
-                                                            <input type='hidden' name='game_id' value='{$id}'/>
-                                                            <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
-                                                          </form>";
+                                        <input type='hidden' name='game_id' value='{$id}'/>
+                                        <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
+                                      </form>";
                             }
 
-                            echo "            </div>
-                                            </div>
-                                        </div>
-                                      </div>";
+                            echo "</div>
+                                 </div>
+                                </div>
+                              </div>";
                         }
                     }
                     curl_close($curl);

@@ -80,13 +80,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../Ramp/assets/images/carousel-1.png" alt="Slider image with logo RAMP">
+                        <img src="../Ramp/assets/images/carousel-img-1.png" alt="Slider image with logo RAMP">
                     </div>
                     <div class="carousel-item">
-                        <img src="../Ramp/assets/images/carousel-2.png" alt="Slider image stating that all games are priced at €15/hr">
+                        <img src="../Ramp/assets/images/carousel-img-2.png" alt="Slider image stating that all games are priced at €15/hr">
                     </div>
                     <div class="carousel-item">
-                        <img src="../Ramp/assets/images/carousel-3.png" alt="Slider image stating Dont want to buy? Just rent!">
+                        <img src="../Ramp/assets/images/carousel-img-3.png" alt="Slider image stating Dont want to buy? Just rent!">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -121,7 +121,7 @@
                                 "Content-Type: application/json"
                             ],
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => 'fields name,cover.url; limit 8; sort rating desc;',
+                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url,rating; limit 8; sort rating desc;',
                         ]);
 
                         $response = curl_exec($curl);
@@ -139,6 +139,7 @@
                                 $name = $game['name'];
                                 $imageUrl = $game['cover']['url'];
                                 $altText = "Cover image for {$name}";
+                                $rating = isset($game['rating']) ? round($game['rating']) : 'N/A';
 
                                 echo "<div class='col mb-5'>
                                             <div class='card h-100'>
@@ -146,6 +147,7 @@
                                                 <div class='card-body p-4'>
                                                     <div class='text-center'>
                                                         <h5 class='fw-bolder'>{$name}</h5>
+                                                        <p>Rating: {$rating}</p>
                                                     </div>
                                                 </div>
                                                 
@@ -176,7 +178,7 @@
         <!-- Footer-->
         <footer class="text-center text-lg-start bg-dark text-white">
             <div class="container p-4 pb-0">
-                <section class="">
+                <section>
                     <form method="POST" action="phplogic/submit_news.php" >
                         <div class="row d-flex justify-content-center">
                             <div class="col-auto">

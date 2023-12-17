@@ -73,6 +73,7 @@
         <!-- Products -->
         <section class="py-5">
             <h1 class="text-center">Xbox</h1>
+            <p class="text-center">Sorted by Highest Rated</p>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php
@@ -90,7 +91,7 @@
                                 "Content-Type: application/json"
                             ],
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url; where category = 0 & platforms = 49; limit 100; sort rating desc;',
+                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url,rating; where category = 0 & platforms = 49; limit 100; sort rating desc;',
                         ]);
 
                         $response = curl_exec($curl);
@@ -108,6 +109,7 @@
                                 $name = $game['name'];
                                 $imageUrl = $game['cover']['url'];
                                 $altText = "Cover image for {$name}";
+                                $rating = isset($game['rating']) ? round($game['rating']) : 'N/A';
 
                                 echo "<div class='col mb-5'>
                                         <div class='card h-100'>
@@ -115,6 +117,7 @@
                                             <div class='card-body p-4'>
                                                 <div class='text-center'>
                                                     <h5 class='fw-bolder'>{$name}</h5>
+                                                    <p>Rating: {$rating}</p>
                                                 </div>
                                             </div>
                                             

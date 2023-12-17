@@ -73,6 +73,7 @@
         <!-- Products -->
         <section class="py-5">
             <h1 class="text-center">Nintendo</h1>
+            <p class="text-center">Sorted by Highest Rated</p>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php
@@ -90,7 +91,7 @@
                                 "Content-Type: application/json"
                             ],
                             CURLOPT_CUSTOMREQUEST => 'POST',
-                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url; where category = 0 & platforms = 130; limit 100; sort rating desc;',
+                            CURLOPT_POSTFIELDS => 'fields name,category,platforms,cover.url,rating; where category = 0 & platforms = 130; limit 100; sort rating desc;',
                         ]);
 
                         $response = curl_exec($curl);
@@ -108,6 +109,7 @@
                                 $name = $game['name'];
                                 $imageUrl = $game['cover']['url'];
                                 $altText = "Cover image for {$name}";
+                                $rating = isset($game['rating']) ? round($game['rating']) : 'N/A';
 
                                 echo "<div class='col mb-5'>
                                         <div class='card h-100'>
@@ -115,6 +117,7 @@
                                             <div class='card-body p-4'>
                                                 <div class='text-center'>
                                                     <h5 class='fw-bolder'>{$name}</h5>
+                                                    <p>Rating: {$rating}</p>
                                                 </div>
                                             </div>
                                             
@@ -125,15 +128,15 @@
                                     echo "<a href='../Ramp/login.php' class='btn btn-outline-dark'><i class='fa-solid fa-user'></i> Add to Cart</a>";
                                 } else {
                                     echo "<form action='phplogic/add_to_cart.php' method='post'>
-                                                            <input type='hidden' name='game_id' value='{$id}'/>
-                                                            <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
-                                                          </form>";
+                                            <input type='hidden' name='game_id' value='{$id}'/>
+                                            <button type='submit' class='btn btn-outline-dark mt-auto'>Add to cart</button>
+                                           </form>";
                                 }
 
-                                echo "            </div>
-                                            </div>
-                                        </div>
-                                      </div>";
+                                echo "</div>
+                                     </div>
+                                    </div>
+                                   </div>";
                             }
                         }
                         curl_close($curl);
