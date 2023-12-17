@@ -8,10 +8,6 @@
     -o-background-size: cover;
     background-size: cover;
 }
-.card-placement{
-    top: 0.5rem;
-    right: 0.5rem
-}
 
 
 
@@ -24,9 +20,6 @@
     object-fit: cover;
     height: 100%;
 }
-
-
-
 .login-heading {
     font-weight: 300;
 }
@@ -39,8 +32,6 @@
 
 
 
-
-
 /* Cart */
 @media (min-width: 1025px) {
     .h-custom {
@@ -49,13 +40,4 @@
 }
 .cart-img{
     width: 120px;
-}
-
-
-
-
-.image-850x350 {
-    width: 850px;
-    height: 350px;
-    object-fit: cover;
 }

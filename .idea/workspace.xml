@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Update display and search enhancements, add SQL dump for test data&#10;&#10;This commit includes improvements to the game display and search results to include game rating and cover image, enhancing search visibility and value. An unnecessary print statement from cart.php was removed. Additionally, a SQL dump file was added, containing table structures and test data for the Ramp database." />
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,6 +165,8 @@
       <workItem from="1701894405666" duration="93953000" />
       <workItem from="1702779123479" duration="10714000" />
       <workItem from="1702836314029" duration="232000" />
+      <workItem from="1702836549689" duration="38000" />
+      <workItem from="1702836747124" duration="151000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -403,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702836471669</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary=".">
+      <option name="closed" value="true" />
+      <created>1702836562240</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1702836562240</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,6 +458,7 @@
     <MESSAGE value="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php." />
     <MESSAGE value="Add SQL dump for Ramp database structure and test data&#10;&#10;This commit adds a new SQL dump file for the Ramp database. The SQL file contains the structure for tables 'cart', 'newsletter', and 'users', and inserts test data into them. Also, updates workspace.xml to reflect the changes." />
     <MESSAGE value="Update display and search enhancements, add SQL dump for test data&#10;&#10;This commit includes improvements to the game display and search results to include game rating and cover image, enhancing search visibility and value. An unnecessary print statement from cart.php was removed. Additionally, a SQL dump file was added, containing table structures and test data for the Ramp database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update display and search enhancements, add SQL dump for test data&#10;&#10;This commit includes improvements to the game display and search results to include game rating and cover image, enhancing search visibility and value. An unnecessary print statement from cart.php was removed. Additionally, a SQL dump file was added, containing table structures and test data for the Ramp database." />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>
