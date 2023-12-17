@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Update game display and search data, remove print statement&#10;&#10;This commit expands the type of information surfaced in search results by including game rating and cover image. The game display across multiple pages is also adjusted to show this game rating. An unnecessary print statement from cart.php has been removed.">
-      <change afterPath="$PROJECT_DIR$/phplogic/updateprofile_logic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/updateprofile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="5cf007bb-6830-4536-baf9-e603a05507a3" name="Changes" comment="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,7 +160,7 @@
       <workItem from="1701796525452" duration="1539000" />
       <workItem from="1701888739050" duration="1262000" />
       <workItem from="1701894405666" duration="93953000" />
-      <workItem from="1702779123479" duration="10557000" />
+      <workItem from="1702779123479" duration="10714000" />
     </task>
     <task id="LOCAL-00001" summary="1st Commit">
       <option name="closed" value="true" />
@@ -391,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702834018162</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php.">
+      <option name="closed" value="true" />
+      <created>1702836060073</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1702836060073</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,6 +433,7 @@
     <MESSAGE value="Add password change functionality and update search limit&#10;&#10;Introduced password change functionality with the addition of &quot;passchange.php&quot; and &quot;change_logic.php&quot;. Also updated the search feature in &quot;search.php&quot; to limit search results to 100. Both improvements enhance the user experience." />
     <MESSAGE value="Expand search results and improve game display&#10;&#10;Updated the search parameters in search.php to include more information, such as game rating and cover image. Adjusted the game display across multiple pages (platform-specific and main index) to show the game rating. Also removed an unnecessary print statement from cart.php." />
     <MESSAGE value="Update game display and search data, remove print statement&#10;&#10;This commit expands the type of information surfaced in search results by including game rating and cover image. The game display across multiple pages is also adjusted to show this game rating. An unnecessary print statement from cart.php has been removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update game display and search data, remove print statement&#10;&#10;This commit expands the type of information surfaced in search results by including game rating and cover image. The game display across multiple pages is also adjusted to show this game rating. An unnecessary print statement from cart.php has been removed." />
+    <MESSAGE value="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve game display and search results, remove unnecessary print statement&#10;&#10;Updated the game display across different pages to include additional information such as game rating and cover image. These modifications enhance the visibility and value of search results. Additionally, deleted a redundant print statement from cart.php." />
   </component>
 </project>
