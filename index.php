@@ -80,13 +80,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../Ramp/assets/images/carousel-img-1.png" alt="Slider image with logo RAMP">
+                        <img class="img-fluid" src="../Ramp/assets/images/carousel-img-1.png" alt="Slider image with logo RAMP">
                     </div>
                     <div class="carousel-item">
-                        <img src="../Ramp/assets/images/carousel-img-2.png" alt="Slider image stating that all games are priced at €15/hr">
+                        <img class="img-fluid" src="../Ramp/assets/images/carousel-img-2.png" alt="Slider image stating that all games are priced at €15/hr">
                     </div>
                     <div class="carousel-item">
-                        <img src="../Ramp/assets/images/carousel-img-3.png" alt="Slider image stating Dont want to buy? Just rent!">
+                        <img class="img-fluid" src="../Ramp/assets/images/carousel-img-3.png" alt="Slider image stating Dont want to buy? Just rent!">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
