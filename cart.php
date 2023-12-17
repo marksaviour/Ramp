@@ -104,8 +104,6 @@
                                     $sql->execute();
                                     $result = $sql->get_result();
 
-                                    echo $result;
-
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
                                             $game_id = $row['game_id'];
@@ -159,7 +157,6 @@
                                                                     <input type='number' id='hours-{$id}' class='form-control' value='1' min='1' onchange='calculateTotal()'>
                                                                 </td>
 
-
                                                                 </td>
                             
                                                                 <td class='align-middle text-center'>
@@ -181,9 +178,6 @@
                                                 }
                                             }
                                         }
-                                    } else {
-                                        header("Location: ../Ramp/error.php");
-                                        exit();
                                     }
                                 ?>
                             </tbody>
